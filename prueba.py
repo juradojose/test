@@ -1,4 +1,4 @@
-val = raw_input("dame el primer valor")
-val2 = raw_input("dame el segundo valor valor")
+val = raw_input("el primer valor"\n)
+val2 = raw_input("el segundo valor valor"\n)
 
 print val*val2
