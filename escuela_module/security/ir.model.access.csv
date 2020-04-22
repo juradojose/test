@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_escuela_module_escuela_module,escuela_module.escuela_module,model_escuela_module_escuela_module,,1,1,1,1
