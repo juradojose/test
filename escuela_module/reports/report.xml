@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="escuela_module_alumno_report"
+            string="Reporte Alumno"
+            model="escuela_module.escuela_alumno"
+            report_type="qweb-pdf"
+            name="escuela_module.report_alumno_template"
+        />
+        <template id="report_alumno_template">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h1 style="margin-left: 10rem;">Reporte de Alumno</h1>
+                            <t t-foreach="docs" t-as="o"> 
+                                <div class="container" style="margin-top: 15rem;">
+                                    <h2>Datos Personales</h2>
+                                    <label for="Nombre">Nombre de Alumno:</label>
+                                    <p id="Nombre">
+                                        <span t-field="o.nombre"/> <span t-field="o.apellido_pat"/> <span t-field="o.apellido_mat"/>
+                                    </p> 
+                                    <label for="Direccion">Direccion:</label>
+                                    <p id="Direccion">
+                                        <span t-field="o.direccion"/>
+                                    </p>
+                                    <h2>Datos Escolares</h2>
+                                    <label for="fecha">Fecha de ingreso:</label>
+                                    <p id="fecha"><span t-field="o.fecha_ingreso"/></p>
+                                    <label for="Promedio">Promedio acumulado:</label>
+                                    <p id="Promedio"><span t-field="o.promedio_acumulado"/></p>
+                                    <label for="Matricula">Matricula:</label>
+                                    <p id="Matricula"><span t-field="o.matricula"/></p>
+                                </div>
+                            </t>                       
+                    </div>
+                    <div class="footer">
+                        <small>Mi footer</small>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -23,9 +23,12 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/Alumnos.xml',
-        'views/Maestros.xml',
-        'views/Calificaciones.xml',
+        'views/Alumnos.xml',            # Vista de Alumnos
+        'views/Maestros.xml',           # Vista de Maestros
+        'views/Calificaciones.xml',     # Vista de calificaciones
+        'reports/report.xml',           # XML generador de reporte Alumno
+        'reports/maestrosReport.xml',   # XML generador reporte maestro
+        'wizard/wizard_alumno.xml',     # Wizard Alumno
         #'views/templates.xml',
     ],
     # only loaded in demonstration mode

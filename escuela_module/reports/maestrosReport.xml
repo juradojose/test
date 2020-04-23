@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="escuela_module_maestro_report"
+            string="Reporte Maestro"
+            model="escuela_module.maestro"
+            report_type="qweb-pdf"
+            name="escuela_module.report_maestro_template"
+        />
+        <template id="report_maestro_template">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h1 style="margin-left: 10rem;">Reporte de Maestro</h1>
+                            <t t-foreach="docs" t-as="o"> 
+                                <div class="container" style="margin-top: 15rem;">
+                                    <h3>Datos Personales</h3>
+                                    <label for="Nombre">Nombre de Maestro:</label>
+                                    <p id="Nombre">
+                                        <span t-field="o.nombre"/> <span t-field="o.apellido_pat"/> <span t-field="o.apellido_mat"/>
+                                    </p> 
+                                    <label for="Direccion">Dirección:</label>
+                                    <p id="Direccion">
+                                        <span t-field="o.direccion"/>
+                                    </p>
+                                    <h3>Datos Laborales</h3>
+                                    <label for="fecha">Fecha de ingreso:</label>
+                                    <p id="fecha"><span t-field="o.fecha_ingreso"/></p>
+                                    <label for="Cedula">Cedula Profecional:</label>
+                                    <p id="Cedula"><span t-field="o.cedula"/></p>
+                                    <label for="Materias">Materias Impartidas:</label>
+                                    <table>
+                                        <thead>
+                                            <th class="o_column_sortable">
+                                                Nombre
+                                            </th>
+                                            <th  class="o_column_sortable">
+                                                Dirección
+                                            </th>
+                                            <th class="o_column_sortable">
+                                                Fecha de Ingreso
+                                            </th>
+                                            <th class="o_column_sortable">
+                                                Promedio Acumulado
+                                            </th>
+                                            <th class="o_column_sortable">
+                                                Matricula
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.tutorados" t-as="tutorado">
+                                                <td><span t-field="tutorado.nombre" /> <span t-field="tutorado.apellido_pat" /> <span t-field="tutorado.apellido_mat"/></td>            
+                                                <td><span t-field="tutorado.direccion"/></td>            
+                                                <td><span t-field="tutorado.fecha_ingreso"/></td>            
+                                                <td><span t-field="tutorado.promedio_acumulado"/></td>            
+                                                <td><span t-field="tutorado.matricula"/></td>            
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </t>                       
+                    </div>
+                    <div class="footer">
+                        <small>Mi footer</small>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

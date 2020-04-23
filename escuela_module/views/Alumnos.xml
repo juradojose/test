@@ -1,5 +1,4 @@
 <odoo>
-  <data>
     <record id="seq_student_application1" model="ir.sequence">
       <field name="name">Matricula Alumno</field>
       <field name="code">generate_matricula</field>
@@ -24,12 +23,27 @@
         </tree>
       </field>
     </record>
+    <!--inherit partner-->
+      <record id="partner_module_inherit" model="ir.ui.view">
+        <field name="name">partner.inherit.form</field>
+        <field name="model">res.partner</field>
+  			<field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='street']" position="before">
+            <label for="direccion_2" string="Dirección Alternativa"/>
+            <field name="direccion_2" />
+          </xpath>
+        </field>
+      </record>
     <!-- From de Alumnos-->
      <record id="escuela_module.form_alumnos" model="ir.ui.view">
       <field name="model">escuela_module.escuela_alumno</field>
       <field name="name">escuela_module.escuela_alumno.alumnoform</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <button string="Crear Grupo" name="%(escuela_module.action_wizard_escuela_alumnos)d" type="action" class="oe_highlight"/>
+          </header>
           <sheet>
             <group>
               <group string="Datos Personales">
@@ -77,66 +91,14 @@
         sequence="0"
         />
     <menuitem
-        id="escuela_alumnos"
+        id="escuela_alumnos_top"
         name="Alumnos"
         parent="escuela_root"
+        sequence="2"/>
+
+     <menuitem id="escuela_alumnos_perfiles" 
+        name="Perfil de Alumnos" 
         action="action_escuela_alumnos"
-        />  
-    
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="escuela_module.list">
-      <field name="name">escuela_module list</field>
-      <field name="model">escuela_module.escuela_module</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
-
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="escuela_module.action_window">
-      <field name="name">escuela_module window</field>
-      <field name="res_model">escuela_module.escuela_module</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="escuela_module.action_server">
-      <field name="name">escuela_module server</field>
-      <field name="model_id" ref="model_escuela_module_escuela_module"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="escuela_module" id="escuela_module.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="escuela_module.menu_1" parent="escuela_module.menu_root"/>
-    <menuitem name="Menu 2" id="escuela_module.menu_2" parent="escuela_module.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="escuela_module.menu_1_list" parent="escuela_module.menu_1"
-              action="escuela_module.action_window"/>
-    <menuitem name="Server to list" id="escuela_module" parent="escuela_module.menu_2"
-              action="escuela_module.action_server"/>
-    -->
-  </data>
+        parent="escuela_alumnos_top" 
+        sequence="2"/>
 </odoo>
