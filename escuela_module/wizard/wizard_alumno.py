@@ -37,4 +37,4 @@ class wizard_alumnos(models.TransientModel):
             'field_name':self.field_name
         }
         self.env['escuela_module.escuela_grupos'].create(vals)   
-        pass
+    
