@@ -22,8 +22,8 @@
           <field name="direccion_socio"/>
           <field name="telefono_socio"/>
           <field name="edad_socio"/>
-          <field name="inscripcion_socio"/>
           <field name="sexo_socio"/>
+          <field name="inscripcion_socio"/>
           <field name="imagen"/>
           <field name="override_create"/>
           <field name="override_write"/>
@@ -42,8 +42,8 @@
               <field name="direccion_socio"/>
               <field name="telefono_socio"/>
               <field name="edad_socio" widget="integer"/>
-              <field name="inscripcion_socio"/>
               <field name="sexo_socio" widget="radio"/>
+              <field name="inscripcion_socio"/>
               <field name="imagen" widget="image"/>
               <field name="override_create"/>
               <field name="override_write"/> 
@@ -61,10 +61,10 @@
           <field name="nombre_staff"/>
           <field name="direccion_staff"/>
           <field name="telefono_staff" widget="phone"/>
-          <field name="sexo_staff"/>
-          <field name="ingreso_staff"/>
           <field name="puesto_staff"/>
           <field name="email_staff" widget="email"/>
+          <field name="sexo_staff"/>
+          <field name="ingreso_staff"/>
         </tree>
       </field>
     </record> 
@@ -84,10 +84,10 @@
               <field name="nombre_staff"/>
               <field name="direccion_staff"/>
               <field name="telefono_staff" widget="phone"/>
-              <field name="sexo_staff" widget="radio"/>
-              <field name="ingreso_staff"/>
               <field name="puesto_staff"/>
               <field name="email_staff" widget="email"/>
+              <field name="sexo_staff" widget="radio"/>
+              <field name="ingreso_staff"/>
             </group>
           </sheet>
         </form>
@@ -100,8 +100,8 @@
       <field name="arch" type="xml">
         <tree>
           <field name="nombre_clase"/>
-          <field name="horario_clase"/>
           <field name="instructor_clase" widget="selection"/>
+          <field name="horario_clase"/>
           <field name="clave_clase"/>
           <field name="terminada"/>
         </tree>
@@ -116,13 +116,13 @@
           <header>
           <button string="Generar Clave" type="object" name="genera_1" class="oe_highlight"/>
           <button string="Limpiar Caracteres" type="object" name="limpiar"/>
-          <button string="Terminar Clase" type="action" name="%(modulogym.terminar_clase_wizard)d" class="oe_highlight"/>
+          <button string="Terminar Clase" type="action" name="%(modulogym.terminar_clase_wizard)d"/>
          </header>
           <sheet>
             <group col="4">
               <field name="nombre_clase"/>
-              <field name="horario_clase"/>
               <field name="instructor_clase"/>
+              <field name="horario_clase"/>
               <field name="clave_clase"/>
               <field name="terminada"/>
             </group>
