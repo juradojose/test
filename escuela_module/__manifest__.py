@@ -22,7 +22,8 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        #'security/user_list.xml',
+        #'security/ir.model.access.csv',
         'views/Alumnos.xml',            # Vista de Alumnos
         'views/Maestros.xml',           # Vista de Maestros
         'views/Calificaciones.xml',     # Vista de calificaciones

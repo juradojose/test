@@ -3,8 +3,21 @@
 from odoo import models, fields, api, _
 class partner_inherit(models.Model):
     _inherit=['res.partner']
-
     direccion_2=fields.Char( string='Direccion alternativa')
+
+    @api.model
+    def create(self,values):
+        if not values['direccion_2']:
+            values['direccion_2']="No existe dirección alternativa"
+        record = super(partner_inherit, self).create(values)
+        return record
+
+    @api.multi
+    def write(self,values):
+        if not values['direccion_2']:
+            values['direccion_2']="No existe dirección alternativa"
+        record = super(partner_inherit,self).write(values)
+        return record
 
 class EscuelaAlumno(models.Model):
     _name="escuela_module.escuela_alumno"
@@ -29,8 +42,15 @@ class EscuelaAlumno(models.Model):
 
     grupo=fields.Many2one('escuela_module.escuela_grupos','Grupo de Alumno')
     materias= fields.Many2many('escuela_module.materias',string="Materias Asignadas")
+
     @api.model
     def create(self, vals):
         vals['matricula'] = self.env['ir.sequence'].next_by_code('generate_matricula') or _('New')
         res = super(EscuelaAlumno, self).create(vals)
         return res
+    
+    @api.multi
+    def unlink(self,values):
+        print('Entrando a unlink')
+        model= super(EscuelaAlumno,self)
+        return model.unlink()

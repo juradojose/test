@@ -100,5 +100,5 @@
         name="Perfil de Alumnos" 
         action="action_escuela_alumnos"
         parent="escuela_alumnos_top" 
-        sequence="2"/>
+        sequence="3"/>
 </odoo>
