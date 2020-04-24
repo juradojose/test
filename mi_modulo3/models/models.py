@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api, exceptions
 
+#comentarios
+
 
 class mi_wizard(models.TransientModel):
     _name = 'modulo3.wizard'
