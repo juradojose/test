@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="terminar_clase_form" model="ir.ui.view">
+			<field name="name">terminar.clase.wizard</field>
+			<field name="model">terminar.clase</field>
+			<field name="arch" type="xml">
+				<form string="Terminar Clase">
+					<group>
+						<field name="clave_clase"/>
+						<field name="terminada"/>
+					</group>
+					<footer>
+						<button name="confirmar_clase" string="Confirmar" type="object" class="btn-primary"/>
+						<button string="Cancelar" class="btn-secondary" special="cancel"/>
+					</footer>
+				</form>
+			</field>			
+		</record>	
+
+		<record id="terminar_clase_wizard" model="ir.actions.act_window">
+			<field name="name">Terminar Clase</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">terminar.clase</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="terminar_clase_form"/>
+			<field name="target">new</field>
+		</record>	
+	</data>
+</odoo>
