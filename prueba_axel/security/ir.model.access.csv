@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_prueba_axel_prueba_axel,prueba_axel.prueba_axel,model_prueba_axel_prueba_axel,,1,1,,
+demo_admin,model admin acces,prueba_axel.model_prueba_axel_alumnos,prueba_axel.group_manager,1,1,1,1
+demo_user,model user acces,prueba_axel.model_prueba_axel_alumnos,prueba_axel.group_user,1,0,0,0
+demo_admin_maestro,model admin acces,prueba_axel.model_prueba_axel_maestros,prueba_axel.group_manager,1,1,1,1
+demo_user_maestro,model user acces,prueba_axel.model_prueba_axel_maestros,prueba_axel.group_user,1,0,0,0

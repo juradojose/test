@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<report id="report_modulogym"
+			string="Reporte Socio"
+			model="modulogym.modulogym"
+			report_type="qweb-pdf"
+			name="modulogym.report_modulogym_template"
+		/>
+			
+			<template id="report_modulogym_template">
+					<t t-call="report.external_layout">
+						<t t-call="report.html_container">
+							<t t-foreach="docs" t-as="doc">
+								<div class="page">
+									<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+							  		<div class="oe_structure"/>
+							  		<div class="row">
+							  			<div class="col-xs-2" style="margin:auto;">
+							  			</div>
+							  			<center>
+							  				<div class="col-xs-8" style="margin:auto;">
+							  					<table class=" table table-condensed" style="border: 3px solid black !important;">
+							  						<tr>
+							  							<td width="40%">
+							  								<p style="text-align:center;padding-top:10px;">
+							  								<img t-if="not doc.imagen" t-att-src="'/web/static/src/img/logo2.png'" height="120" border="1" width="120"/>
+							  								<span t-field="doc.imagen" t-field-options='{"widget": "image"}' height="120" border="1" width="120"/>
+							  								</p>
+							  								<p style="text-align:center;">
+							  									<h2><strong><span t-field="doc.nombre_socio"/></strong></h2>
+							  								</p>
+							  							</td>
+							  							<td width="60%">
+							  								<table>
+							  									<tr>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:right;"><strong>Edad: </strong></p>
+							  											<p style="text-align:right;"><strong>Celular: </strong></p>	
+							  											<p style="text-align:right;"><strong>Dirección: </strong></p>
+							  											<p style="text-align:right;"><strong>Fecha Inscripción: </strong></p>
+							  										</td>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.edad_socio"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.telefono_socio"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.direccion_socio"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.inscripcion_socio"/>	
+							  										</td>
+							  									</tr>
+							  								</table>
+							  							</td>
+							  						</tr>
+							  					</table>
+							  				</div>
+							  			</center>
+							  		</div>											
+								</div>
+							</t>
+						</t>	
+					</t>
+			</template>	
+	</data>
+</odoo>
+

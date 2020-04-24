@@ -1,0 +1,16 @@
+<odoo>
+	<data>
+		<record model="res.groups" id="group_modulogym_manager">
+			<field name="name">Grupo Administradores</field>
+		</record>
+
+		<record model="res.groups" id="group_modulogym_socio">
+			<field name="name">Grupo Socios</field>
+		</record>
+
+		<record model="res.groups" id="group_modulogym_instructor">
+			<field name="name">Grupo Instructores</field>
+		</record>
+	</data>
+</odoo>
+

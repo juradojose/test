@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Listado de calificaciones -->
+        <record id="escuela_module.list_maestro" model="ir.ui.view">
+            <field name="model">escuela_module.calificaciones</field>
+            <field name="name">escuela_module.calificaciones.maestroList</field>
+            <field name="arch" type="xml">
+                <tree string="Calificaciones">
+                    <field name="materia"/>
+                    <field name="unidad"/>
+                    <field name="calificacion"/>
+                    <field name="estatus"/>
+                </tree>
+            </field>
+        </record>
+        <!-- From de Calificaciones-->
+        <record id="escuela_module_calificaciones" model="ir.ui.view">
+            <field name="model">escuela_module.calificaciones</field>
+            <field name="name">escuela_module.calificaciones.caliform</field>
+            <field name="arch" type="xml">
+                <form string="Calificaciones">
+                    <sheet>
+                        <group string="Registrar Calificación">
+                            <field name="materia"/>
+                            <field name="unidad"/>
+                            <field name="calificacion"/>
+                            <field name="estatus"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Action of theacher menu -->
+        <record id="action_escuela_calificaciones" model="ir.actions.act_window">
+            <field name="name">Calificaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">escuela_module.calificaciones</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create first registry.</p>
+            </field>
+        </record>
+        <menuitem
+            id="escuela_root"
+            name="Escuela"
+            sequence="0"
+            />
+        <menuitem
+            id="escuela_calificacion"
+            name="calificaciones"
+            parent="escuela_root"
+            action="action_escuela_calificaciones"
+            />  
+    </data>
+</odoo>

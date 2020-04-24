@@ -1,0 +1,21 @@
+<odoo>
+    
+    <template id="bandas_card_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!--<t t-call="web.external_layout">-->
+                    <div class="page">
+                        <h1>Titulo del reporte</h1>
+                        <h2><t t-esc="o.banda"/></h2>
+                        <img src="o.imagen" />
+                        <t t-esc="o.genero"/><br/>
+                        <t t-esc="o.pais_origen"/><br/>
+                        <t t-esc="o.estatus"/><br/>
+                        <t t-esc="o.discos"/><br/>
+                    </div>
+                <!--</t>-->
+            </t>
+        </t>
+    </template>
+    
+</odoo>
