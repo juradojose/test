@@ -1,5 +1,5 @@
 #  compute='crear_id' -*- coding: utf-8 -*-
- # prueba de github para el pull request del axel
+ # prueba de github para el pull request del axel de nuevo 8c
 
 from odoo import models, fields, api
 class partner_inherit(models.Model):
