@@ -1,5 +1,5 @@
 #  compute='crear_id' -*- coding: utf-8 -*-
-
+#  prueba pr ya bien :c
 from odoo import models, fields, api
 class partner_inherit(models.Model):
      _inherit = 'res.partner'

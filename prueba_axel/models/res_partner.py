@@ -9,7 +9,7 @@ class res_partner(models.Model):
 
     @api.model
     def create(self, values):
-        # Override the original create function for the res.partner model
+        # Sobrescribir con el metodo super
         record = super(res_partner, self).create(values)
 
         # Change the values of a variable in this super function
