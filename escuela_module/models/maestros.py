@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-
+#Añadiendo descripcion en maestros para pull request
 
 class EscuelaMaestro(models.Model):
     _name="escuela_module.maestro"
