@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+
+#Añadiendo descripcion a alumnos para pull request
 class partner_inherit(models.Model):
     _inherit=['res.partner']
     direccion_2=fields.Char( string='Direccion alternativa')

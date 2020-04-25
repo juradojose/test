@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-
+#otro comentario
 class EscuelaGrupos(models.Model):
     _name="escuela_module.escuela_grupos"
     _rec_name='field_name'
