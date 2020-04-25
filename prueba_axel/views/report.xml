@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <report id="reporte_alumno" string="Reporte por maestro"
+               model="prueba_axel.maestros"
+               report_type="qweb-pdf"
+               name="prueba_axel.report_maestro_template"
+       />
+        <template id="report_maestro_template">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                    <div class="header">
+                        Axel School xd / Logo
+                    </div>
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <h1>Infome de docente</h1>
+                        <br></br>
+                        Nombre del Maestro:<t t-esc="doc.nombre"/>
+                        <br></br>
+                        Materia:<t t-esc="doc.materia"/>
+                        <br></br>
+                        Alumnos:
+                        <p>
+                            <t t-foreach="doc.alumnos" t-as="index">
+                                <p><t t-esc="index.nombre"/></p>
+                                <p><t t-esc="index.materia"/></p>
+                                <p><t t-esc="index.carrera"/></p>
+                                <p><t t-esc="index.calif"/></p>
+
+
+                            </t>
+                        <!--<t t-foreach='get_alumnos_values' t-as='value'>
+                            <t t-esc="value.nombre"/>
+                        </t>-->
+                        </p>
+                        <!--Alumno por materia:<t t-esc="doc.alumnos"/>-->
+                        <br></br>
+                        <h2>si me saliò :O</h2>
+
+                    </div>
+                    <div class="footer">
+                        <small>este es mi footer</small>
+                    </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

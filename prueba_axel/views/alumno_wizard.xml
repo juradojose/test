@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="alumnos_wizard_view" model="ir.ui.view">
+        <field name="name">Alumnos</field>
+        <field name="model">prueba_axel.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="alumnos_ids" widget="many2many_list"/>
+                    <field name="estado"/>
+                </group>
+                <footer>
+                    <button name="set_alumno_estado" class="oe_right oe_highlight" type="object" string="Actualizar estado"/>
+                    <button string="cancelar" class="oe_right" especial="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="alumnos_wizard_action" model="ir.actions.act_window">
+        <field name="name">Wizard_prueba</field>
+        <field name="res_model">prueba_axel.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="alumnos_wizard_view"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="wizard ejemplo" id="prueba_axel.menu_wizard" parent="prueba_axel.menu_alumnos" action="alumnos_wizard_action"/>
+</odoo>

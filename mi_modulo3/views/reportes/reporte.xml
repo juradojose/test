@@ -1,0 +1,10 @@
+<odoo>
+    
+        <report id="bandas_card"
+            model="mi_modulo3.mi_modulo3"
+            string="REPORTE"
+            report_type="qweb-pdf"
+            name="mi_modulo3.bandas_card_report"
+            file="mi_modulo3.bandas_card_report" />
+              
+</odoo>

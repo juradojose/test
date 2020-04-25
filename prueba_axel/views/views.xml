@@ -1,0 +1,177 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_inherit_partner_form" model="ir.ui.view">
+        <field name="name">view.inherit.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="nombre_padres"/>
+                <field name="passed_override_write_function"/>
+            </field>
+            <!-- position: after|before|replace|attributes|inside
+            <xpath expr="//field[@name='']" position="">
+                 Add your fields or attributes here
+            </xpath> -->
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="prueba_axel.list_001">
+      <field name="name">vista.lista.pruebaaxel</field>
+      <field name="model">prueba_axel.alumnos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="edad"/>
+          <!-- <field name="facebook" widget="url"/> -->
+          <field name="carrera"/>
+          <field name="calif1"/>
+          <field name="calif2"/>
+          <field name="calif3"/>
+          <field name="calif"/>
+          <field name="estado"/>
+          <field name="materia"/>
+          <field name="clave"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="prueba_axel.list_002">
+      <field name="name">vista.lista.maestros</field>
+      <field name="model">prueba_axel.maestros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="folio"/>
+          <field name="materia"/>
+          <field name="rfc"/>
+          <field name="fechanac"/>
+          <field name="alumnos"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="prueba_axel.form_001">
+      <field name="name">vista.formulario.pruebaaxel</field>
+      <field name="model">prueba_axel.alumnos</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="alumnos_reprobados" class="oe_highlight" type="object" string="Alumnos reprobados" attrs="{'invisible':
+             [('state','=','reprobados')]}"/>
+            <button name="alumnos_aprobados" class="oe_highlight" type="object" string="Alumnos aprobados" attrs="{'invisible':
+             [('state','=','aprobados')]}"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group col="4">
+              <field name="nombre"/>
+              <field name="edad"/>
+              <field name="facebook" widget="url"/>
+              <field name="carrera" widget="selection"/>
+              <field name="estado"/>
+              <field name="materia"/>
+              <field name="clave"/>
+            </group>
+            <group col="4">
+              <field name="calif1"/>
+              <field name="calif2"/>
+              <field name="calif3"/>
+              <field name="calif"/>
+              <button string="Calcular promedio" type="object" name="generar_promedio"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="prueba_axel.form_002">
+      <field name="name">vista.formulario.maestros</field>
+      <field name="model">prueba_axel.maestros</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="alumnos_reprobados" class="oe_highlight" type="object" string="Alumnos reprobados" attrs="{'invisible':
+             [('state','=','reprobados')]}"/>
+            <button name="alumnos_aprobados" class="oe_highlight" type="object" string="Alumnos aprobados" attrs="{'invisible':
+             [('state','=','aprobados')]}"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group col="4">
+              <field name="nombre"/>
+              <field name="folio"/>
+              <field name="materia"/>
+              <field name="rfc"/>
+              <field name="fechanac"/>
+              <field name="metodo" widget="radio"/>
+            </group>
+            <group>
+              <field name="alumnos"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="prueba_axel.action_window2">
+      <field name="name">Alumnos</field>
+      <field name="res_model">prueba_axel.alumnos</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html" >
+        <p class="oe_view_nocontent_create">
+          pulsa para crear otro registro
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="prueba_axel.action_windowm">
+      <field name="name">Maestros</field>
+      <field name="res_model">prueba_axel.maestros</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html" >
+        <p class="oe_view_nocontent_create">
+          pulsa para crear otro registro
+        </p>
+      </field>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="prueba_axel.action_server">
+      <field name="name">pruebaAxel server</field>
+      <field name="model_id" ref="model_prueba_axel_prueba_axel"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="escuela" id="prueba_axel.menu_escuela" groups="prueba_axel.group_user,prueba_axel.group_manager"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="alumnos" id="prueba_axel.menu_alumnos" parent="prueba_axel.menu_escuela" action="prueba_axel.action_window2" />
+    <menuitem name="maestros" id="prueba_axel.menu_maestros" parent="prueba_axel.menu_escuela" action="prueba_axel.action_windowm" groups="prueba_axel.group_manager,prueba_axel.group_user"/>
+
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="prueba_axel.menu_1_list" parent="prueba_axel.menu_1"
+              action="prueba_axel.action_window"/>
+    <menuitem name="Server to list" id="prueba_axel" parent="prueba_axel.menu_2"
+              action="prueba_axel.action_server"/>
+    -->
+  </data>
+</odoo>
