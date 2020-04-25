@@ -5,6 +5,8 @@ from datetime import datetime, timedelta
 import random
 import string
 
+
+#Modulo Gym de la segunda semana de capacitación Systeg
 class modulogym_inheritance(models.Model):
      _inherit = 'res.partner'
 
