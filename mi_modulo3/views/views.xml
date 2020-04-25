@@ -15,7 +15,7 @@
       </field>
     </record>
 
-    <!-- explicit form view definition -->
+    
     <record model="ir.ui.view" id="mi_modulo3.form">
       <field name="name">mi_modulo3 form</field>
       <field name="model">mi_modulo3.mi_modulo3</field>
