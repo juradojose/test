@@ -23,7 +23,7 @@ class EscuelaAlumno(models.Model):
     _name="escuela_module.escuela_alumno"
     _rec_name='matricula'
     #_inherit=['mail.thread','mail.tracking.value']
-
+    #añadiendo comentarios para pull requests
     imagen=fields.Binary('Fotografía')
     nombre= fields.Char(string="Nombre" )
     apellido_pat=fields.Char(string="Apellido Paterno")
