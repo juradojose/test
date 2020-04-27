@@ -22,11 +22,13 @@
           <field name="direccion_socio"/>
           <field name="telefono_socio"/>
           <field name="edad_socio"/>
-          <field name="sexo_socio"/>
           <field name="inscripcion_socio"/>
-          <field name="imagen"/>
+          <field name="sexo_socio"/>
+          <field name="pago"/>
+          <field name="metodo_pago"/>
           <field name="override_create"/>
           <field name="override_write"/>
+          <field name="imagen"/>
         </tree>
       </field>
     </record>
@@ -36,17 +38,22 @@
       <field name="model">modulogym.modulogym</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <button string="Confirmar Pago" type="action" name="%(modulogym.confirmar_pago_wizard)d" class="oe_highlight"/>
+          </header>
           <sheet>
             <group col="4">
               <field name="nombre_socio"/>
               <field name="direccion_socio"/>
               <field name="telefono_socio"/>
               <field name="edad_socio" widget="integer"/>
-              <field name="sexo_socio" widget="radio"/>
               <field name="inscripcion_socio"/>
-              <field name="imagen" widget="image"/>
+              <field name="sexo_socio" widget="radio"/>
+              <field name="pago"/>
+              <field name="metodo_pago"/>
               <field name="override_create"/>
-              <field name="override_write"/> 
+              <field name="override_write"/>
+              <field name="imagen" widget="image"/> 
             </group>
           </sheet>
         </form>
@@ -61,10 +68,11 @@
           <field name="nombre_staff"/>
           <field name="direccion_staff"/>
           <field name="telefono_staff" widget="phone"/>
-          <field name="puesto_staff"/>
-          <field name="email_staff" widget="email"/>
           <field name="sexo_staff"/>
           <field name="ingreso_staff"/>
+          <field name="puesto_staff"/>
+          <field name="email_staff" widget="email"/>
+          <field name="imagen"/>
         </tree>
       </field>
     </record> 
@@ -84,10 +92,11 @@
               <field name="nombre_staff"/>
               <field name="direccion_staff"/>
               <field name="telefono_staff" widget="phone"/>
-              <field name="puesto_staff"/>
-              <field name="email_staff" widget="email"/>
               <field name="sexo_staff" widget="radio"/>
               <field name="ingreso_staff"/>
+              <field name="puesto_staff"/>
+              <field name="email_staff" widget="email"/>
+              <field name="imagen" widget="image"/>
             </group>
           </sheet>
         </form>
@@ -100,8 +109,8 @@
       <field name="arch" type="xml">
         <tree>
           <field name="nombre_clase"/>
-          <field name="instructor_clase" widget="selection"/>
           <field name="horario_clase"/>
+          <field name="instructor_clase" widget="selection"/>
           <field name="clave_clase"/>
           <field name="terminada"/>
         </tree>
@@ -116,20 +125,55 @@
           <header>
           <button string="Generar Clave" type="object" name="genera_1" class="oe_highlight"/>
           <button string="Limpiar Caracteres" type="object" name="limpiar"/>
-          <button string="Terminar Clase" type="action" name="%(modulogym.terminar_clase_wizard)d"/>
+          <button string="Terminar Clase" type="action" name="%(modulogym.terminar_clase_wizard)d" class="oe_highlight"/>
          </header>
           <sheet>
             <group col="4">
               <field name="nombre_clase"/>
-              <field name="instructor_clase"/>
               <field name="horario_clase"/>
+              <field name="instructor_clase"/>
               <field name="clave_clase"/>
               <field name="terminada"/>
             </group>
           </sheet>
         </form>
       </field>
-    </record>   
+    </record>
+
+    <record model="ir.ui.view" id="modulogym.list_004">
+      <field name="name">vista.lista.modulogymins</field>
+      <field name="model">modulogymins.modulogymins</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clase"/>
+          <field name="socio"/>
+          <field name="seccion"/>
+          <field name="observaciones"/>
+          <field name="asistencia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="modulogym.form_004">
+      <field name="name">vista.formulario.modulogymins</field>
+      <field name="model">modulogymins.modulogymins</field>
+      <field name="arch" type="xml">
+        <form> 
+        <header>
+            <button string="Confirmar Asistencia" type="object" name="confirmar" class="oe_highlight"/>
+          </header>
+          <sheet>
+            <group col="4">
+              <field name="clase"/>
+              <field name="socio"/>
+              <field name="seccion"/>
+              <field name="observaciones"/>
+              <field name="asistencia"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
 
     <!-- actions opening views on models -->
@@ -169,6 +213,18 @@
         </p>
       </field>    
     </record>
+
+    <record model="ir.actions.act_window" id="modulogym.action_window4">
+      <field name="name">Inscripción</field>
+      <field name="res_model">modulogymins.modulogymins</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>    
+    </record>
     
 
     <!-- server action to the one above -->
@@ -195,6 +251,7 @@
     <menuitem name="Socios" id="modulogym.menu_socios" parent="modulogym.menu_gym" action="modulogym.action_window"/>
     <menuitem name="Staff" id="modulogym.menu_staff" parent="modulogym.menu_gym" action="modulogym.action_window2"/>
     <menuitem name="Clases" id="modulogym.menu_clases" parent="modulogym.menu_gym" action="modulogym.action_window3"/>
+    <menuitem name="Inscripiones a Clases" id="modulogym.menu_ins" parent="modulogym.menu_gym" action="modulogym.action_window4"/>
     <!-- <menuitem name="Menu 2" id="modulogym.menu_2" parent="modulogym.menu_root"/> -->
     
     <!-- actions -->

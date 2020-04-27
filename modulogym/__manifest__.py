@@ -27,6 +27,7 @@
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'wizards/terminar_clase.xml',
+        'wizards/confirmar_pago.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/report.xml',
