@@ -1,6 +1,8 @@
 #  compute='crear_id' -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+import string
+import random
 class partner_inherit(models.Model):
      _inherit = 'res.partner'
      nombre_padres=fields.Char(string="Papàs herencia")
@@ -46,7 +48,7 @@ class prueba_axel(models.Model):
      _rec_name = 'materia'
      nombre = fields.Char(string="Nombre del maestro")
      folio = fields.Integer(string="Folio:", size=3)
-     materia = fields.Text(string="materia asignada")
+     materia = fields.Many2one("prueba_axel.materias",string="materia a elegir")
      rfc = fields.Char(string = "RFC", size=13)
      fechanac = fields.Date(string="fecha de nacimiento")
      alumnos = fields.One2many("prueba_axel.alumnos",'materia', string="Alumnos inscritos")
@@ -57,7 +59,24 @@ class prueba_axel(models.Model):
      def alumnos_reprobados (self):
          self.alumnos = self.env['prueba_axel.alumnos'].search([('estado', '=', False)])
 
+class prueba_axel(models.Model):
+     _name = "prueba_axel.materias"
+     _rec_name = "nombre"
+     nombre=fields.Char(string="Nombre de la materia",required=True)
+     clave=fields.Char(string="Clave de la materia",size=10,readonly=True)
+     profes=fields.One2many("prueba_axel.maestros",'materia',string="Profesores asignados")
+     creditos=fields.Integer(string="Creditos")
+     alumnos = fields.One2many("prueba_axel.alumnos", 'materia', string="Alumnos por materia")
 
+     @api.one
+     def generar_clave(self):
+          self.clave=""
+          for i in range(0,10):
+               self.clave=self.clave+random.choice(string.ascii_letters)
+     def limpiar(self):
+          self.nombre=""
+          self.clave=""
+          self.creditos=0
 
 """
      @api.multi

@@ -53,18 +53,25 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="prueba_axel.list_003">
+      <field name="name">vista.lista.materias</field>
+      <field name="model">prueba_axel.materias</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="clave"/>
+          <field name="profes"/>
+          <field name="creditos"/>
+          <field name="alumnos"/>
+        </tree>
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="prueba_axel.form_001">
       <field name="name">vista.formulario.pruebaaxel</field>
       <field name="model">prueba_axel.alumnos</field>
       <field name="arch" type="xml">
         <form>
-          <header>
-            <button name="alumnos_reprobados" class="oe_highlight" type="object" string="Alumnos reprobados" attrs="{'invisible':
-             [('state','=','reprobados')]}"/>
-            <button name="alumnos_aprobados" class="oe_highlight" type="object" string="Alumnos aprobados" attrs="{'invisible':
-             [('state','=','aprobados')]}"/>
-            <field name="state" widget="statusbar"/>
-          </header>
           <sheet>
             <group col="4">
               <field name="nombre"/>
@@ -116,6 +123,26 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="prueba_axel.form_003">
+      <field name="name">vista.formulario.materias</field>
+      <field name="model">prueba_axel.materias</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+              <field name="nombre"/>
+              <field name="clave"/>
+              <field name="profes"/>
+              <field name="creditos"/>
+              <field name="alumnos"/>
+            </group>
+            <button string="Generar clave" type="object" name="generar_clave"/>
+            <button string="Limpiar" type="object" name="limpiar"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="prueba_axel.action_window2">
@@ -142,6 +169,18 @@
       </field>
     </record>
 
+    <record model="ir.actions.act_window" id="prueba_axel.action_windowma">
+      <field name="name">Materia</field>
+      <field name="res_model">prueba_axel.materias</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html" >
+        <p class="oe_view_nocontent_create">
+          pulsa para crear otro registro
+        </p>
+      </field>
+    </record>
+
     <!-- server action to the one above -->
     <!--
     <record model="ir.actions.server" id="prueba_axel.action_server">
@@ -159,12 +198,13 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="escuela" id="prueba_axel.menu_escuela" groups="prueba_axel.group_user,prueba_axel.group_manager"/>
+    <menuitem name="Escuela" id="prueba_axel.menu_escuela" groups="prueba_axel.group_user,prueba_axel.group_manager"/>
 
     <!-- menu categories -->
 
-    <menuitem name="alumnos" id="prueba_axel.menu_alumnos" parent="prueba_axel.menu_escuela" action="prueba_axel.action_window2" />
-    <menuitem name="maestros" id="prueba_axel.menu_maestros" parent="prueba_axel.menu_escuela" action="prueba_axel.action_windowm" groups="prueba_axel.group_manager,prueba_axel.group_user"/>
+    <menuitem name="Alumnos" id="prueba_axel.menu_alumnos" parent="prueba_axel.menu_escuela" action="prueba_axel.action_window2" />
+    <menuitem name="Maestros" id="prueba_axel.menu_maestros" parent="prueba_axel.menu_escuela" action="prueba_axel.action_windowm" groups="prueba_axel.group_manager,prueba_axel.group_user"/>
+    <menuitem name="Materias" id="prueba_axel.menu_materia" parent="prueba_axel.menu_escuela" action="prueba_axel.action_windowma" groups="prueba_axel.group_manager,prueba_axel.group_user"/>
 
     <!-- actions -->
     <!--
