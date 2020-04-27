@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class res_partner(models.Model):
     _inherit = ['res.partner']
+
     passed_override_write_function = fields.Boolean(string='Has passed our super method')
 
     @api.model

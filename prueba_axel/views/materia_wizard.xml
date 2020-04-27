@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="materias_wizard_view" model="ir.ui.view">
+        <field name="name">materias</field>
+        <field name="model">prueba_axel.wizardmat</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="materias_ids" widget="many2many_list"/>
+                    <field name="creditos"/>
+                </group>
+                <footer>
+                    <button name="set_materia_estado" class="oe_right oe_highlight" type="object" string="Actualizar numero de creditos"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="materia_wizard_action" model="ir.actions.act_window">
+        <field name="name">Materias</field>
+        <field name="res_model">prueba_axel.wizardmat</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="materias_wizard_view"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="Cambiar creditos" id="prueba_axel.menu_wizardmat" parent="prueba_axel.menu_materia" action="materia_wizard_action"/>
+</odoo>
