@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api, _
 
-
+#haciendo pull requests
 class EscuelaMaestro(models.Model):
     _name="escuela_module.maestro"
     _rec_name="nombre"
