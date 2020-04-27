@@ -61,6 +61,184 @@
 						</t>	
 					</t>
 			</template>	
+
+			<report id="report_modulogymstaff"
+				string="Reporte Staff"
+				model="modulogymstaff.modulogymstaff"
+				report_type="qweb-pdf"
+				name="modulogym.report_modulogymstaff_template"
+			/>
+			<template id="report_modulogymstaff_template">
+					<t t-call="report.external_layout">
+						<t t-call="report.html_container">
+							<t t-foreach="docs" t-as="doc">
+								<div class="page">
+									<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+							  		<div class="oe_structure"/>
+							  		<div class="row">
+							  			<div class="col-xs-2" style="margin:auto;">
+							  			</div>
+							  			<center>
+							  				<div class="col-xs-8" style="margin:auto;">
+							  					<table class=" table table-condensed" style="border: 3px solid black !important;">
+							  						<tr>
+							  							<td width="40%">
+							  								<p style="text-align:center;padding-top:10px;">
+							  								<img t-if="not doc.imagen" t-att-src="'/web/static/src/img/logo2.png'" height="120" border="1" width="120"/>
+							  								<span t-field="doc.imagen" t-field-options='{"widget": "image"}' height="120" border="1" width="120"/>
+							  								</p>
+							  								<p style="text-align:center;">
+							  									<h2><strong><span t-field="doc.nombre_staff"/></strong></h2>
+							  								</p>
+							  							</td>
+							  							<td width="60%">
+							  								<table>
+							  									<tr>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:right;"><strong>Direccion: </strong></p>
+							  											<p style="text-align:right;"><strong>Celular: </strong></p>	
+							  											<p style="text-align:right;"><strong>Puesto: </strong></p>
+							  											<p style="text-align:right;"><strong>Fecha Inscripción: </strong></p>
+							  										</td>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.direccion_staff"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.telefono_staff"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.puesto_staff"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.ingreso_staff"/>	
+							  										</td>
+							  									</tr>
+							  								</table>
+							  							</td>
+							  						</tr>
+							  					</table>
+							  				</div>
+							  			</center>
+							  		</div>											
+								</div>
+							</t>
+						</t>	
+					</t>
+			</template>
+
+			<report id="report_modulogymclases"
+				string="Reporte Clases"
+				model="modulogymclases.modulogymclases"
+				report_type="qweb-pdf"
+				name="modulogym.report_modulogymclases_template"
+			/>
+
+			<template id="report_modulogymclases_template">
+					<t t-call="report.external_layout">
+						<t t-call="report.html_container">
+							<t t-foreach="docs" t-as="doc">
+								<div class="page">
+									<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+							  		<div class="oe_structure"/>
+							  		<div class="row">
+							  			<div class="col-xs-2" style="margin:auto;">
+							  			</div>
+							  			<center>
+							  				<div class="col-xs-8" style="margin:auto;">
+							  					<table class=" table table-condensed" style="border: 3px solid black !important;">
+							  						<tr>
+							  							<td width="40%">
+							  								<p style="text-align:center;padding-top:10px;">
+							  								<img t-att-src="'/web/static/src/img/logo2.png'" height="120" border="1" width="120"/>
+							  								</p>
+							  								<p style="text-align:center;">
+							  									<h2><strong><span t-field="doc.nombre_clase"/></strong></h2>
+							  								</p>
+							  							</td>
+							  							<td width="60%">
+							  								<table>
+							  									<tr>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:right;"><strong>Instructor: </strong></p>
+							  											<p style="text-align:right;"><strong>Horario: </strong></p>	
+							  											<p style="text-align:right;"><strong>Clave: </strong></p>
+							  										</td>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.instructor_clase"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.horario_clase"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.clave_clase"/>
+							  										</td>
+							  									</tr>
+							  								</table>
+							  							</td>
+							  						</tr>
+							  					</table>
+							  				</div>
+							  			</center>
+							  		</div>											
+								</div>
+							</t>
+						</t>	
+					</t>
+			</template>
+
+			<report id="report_modulogymins"
+				string="Reporte Inscripciones a Clases"
+				model="modulogymins.modulogymins"
+				report_type="qweb-pdf"
+				name="modulogym.report_modulogymins_template"
+			/>
+
+			<template id="report_modulogymins_template">
+					<t t-call="report.external_layout">
+						<t t-call="report.html_container">
+							<t t-foreach="docs" t-as="doc">
+								<div class="page">
+									<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+							  		<div class="oe_structure"/>
+							  		<div class="row">
+							  			<div class="col-xs-2" style="margin:auto;">
+							  			</div>
+							  			<center>
+							  				<div class="col-xs-8" style="margin:auto;">
+							  					<table class=" table table-condensed" style="border: 3px solid black !important;">
+							  						<tr>
+							  							<td width="40%">
+							  								<p style="text-align:center;padding-top:10px;">
+							  								<img t-att-src="'/web/static/src/img/logo2.png'" height="120" border="1" width="120"/>
+							  								</p>
+							  								<p style="text-align:center;">
+							  									<h2><strong><span t-field="doc.clase"/></strong></h2>
+							  								</p>
+							  							</td>
+							  							<td width="60%">
+							  								<table>
+							  									<tr>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:right;"><strong>Socio: </strong></p>
+							  											<p style="text-align:right;"><strong>Observaciones: </strong></p>	
+							  											<p style="text-align:right;"><strong>Sección: </strong></p>
+																		<p style="text-align:right;"><strong>Asistencia Confirmada: </strong></p>  
+							  										</td>
+							  										<td>
+							  											<br></br><br></br><br></br><br></br>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.socio"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.observaciones"/>
+							  											<p style="text-align:left;padding-left:10px;" t-field="doc.seccion"/>
+																		<p style="text-align:left;padding-left:10px;" t-field="doc.asistencia"/>  
+							  										</td>
+							  									</tr>
+							  								</table>
+							  							</td>
+							  						</tr>
+							  					</table>
+							  				</div>
+							  			</center>
+							  		</div>											
+								</div>
+							</t>
+						</t>	
+					</t>
+			</template>
 	</data>
 </odoo>
 

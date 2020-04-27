@@ -5,46 +5,48 @@ from datetime import datetime, timedelta
 import random
 import string
 
-class modulogym_inheritance(models.Model):
-     _inherit = 'res.partner'
 
-     contacto_emergencia = fields.Char(string="Contacto de Emergencia")
+#Modulo Gym de la segunda semana de capacitación Systeg
+class modulogym_inheritance(models.Model):
+    _inherit = 'res.partner'
+
+    contacto_emergencia = fields.Char(string="Contacto de Emergencia")
 
 class modulogym(models.Model):
-     _name = 'modulogym.modulogym'
-     _rec_name = 'nombre_socio' 
+    _name = 'modulogym.modulogym'
+    _rec_name = 'nombre_socio' 
 
-     @api.model
-     def create(self, values):
+    @api.model
+    def create(self, values):
      	cr = super(modulogym, self).create(values)
      	cr['override_create']=True
      	print 'Función Override Create funciona! valor: ' + str(cr['override_create'])
      	return cr   
 
-     @api.multi
-     def write(self, values):
+    @api.multi
+    def write(self, values):
      	values['override_write']="Esta vacio"
      	wr = super(modulogym, self).write(values)
      	print 'Función Override Write funciona!' #' valor: '  + str(wr['override_write'])
      	return wr
 
-     @api.multi
-     def unlink(self):			
+    @api.multi
+    def unlink(self):			
      	print 'Función Override Unlink funciona!'
      	return super(modulogym, self).unlink()		
      	
 
-     nombre_socio = fields.Char(string="Nombre Socio", required="true")
-     direccion_socio = fields.Text(string="Domicilio Socio", required="true")
-     telefono_socio = fields.Char(string="Número celular Socio", required="true")
-     edad_socio = fields.Integer(string="Edad Socio", required="true")
-     inscripcion_socio = fields.Date(string="Fecha Inscripción", default= lambda self:fields.datetime.now())
-     sexo_socio = fields.Selection([('h', 'Hombre'),('m', 'Mujer')],string="Sexo del Socio", required="true")
-     imagen = fields.Binary(string="Fotografia", attachment=True)
-     override_create = fields.Boolean(string="Función Override Create", readonly=True)
-     override_write = fields.Char(string="Función Override Write")
-
-
+    nombre_socio = fields.Char(string="Nombre Socio", required="true")
+    direccion_socio = fields.Text(string="Domicilio Socio", required="true")
+    telefono_socio = fields.Char(string="Número celular Socio", required="true")
+    edad_socio = fields.Integer(string="Edad Socio", required="true")
+    inscripcion_socio = fields.Date(string="Fecha Inscripción", default= lambda self:fields.datetime.now())
+    sexo_socio = fields.Selection([('h', 'Hombre'),('m', 'Mujer')],string="Sexo del Socio", required="true")
+    metodo_pago = fields.Selection([('TDC', 'Tarjeta de Crédito'),('$', 'Efectivo')],string="Método de Pago")
+    imagen = fields.Binary(string="Fotografia", attachment=True)
+    override_create = fields.Boolean(string="Función Override Create", readonly=True)
+    override_write = fields.Char(string="Función Override Write")
+    pago = fields.Char(string="Pago Socio", readonly=True)
 class modulogymstaff(models.Model):
 	_name = 'modulogymstaff.modulogymstaff'
 	_rec_name = 'nombre_staff'
@@ -72,19 +74,33 @@ class modulogymstaff(models.Model):
 	sexo_staff = fields.Selection([('h', 'Hombre'),('m', ('Mujer'))], required="true")
 	puesto_staff = fields.Selection([('i', 'Instructor'),('a', 'Administrativo')],string="Puesto Staff")
 	email_staff = fields.Char(string="Email", required="true")
+	imagen = fields.Binary(string="Fotografia", attachment=True)
 	state = fields.Selection([
-		('b', 'Borrador'),
-		('c', 'Confirmar'),
-		('l', 'Listo'),
-		],default='b')
+	('b', 'Borrador'),
+	('c', 'Confirmar'),
+	('l', 'Listo'),
+	],default='b')
 
+class modulogymins(models.Model):
+    _name = 'modulogymins.modulogymins'
+    _rec_name = 'socio'
+    
+    @api.one
+    def confirmar(self):
+        self.write({'asistencia': 'Asistencia Confirmada'})
+    
+    clase = fields.Many2one("modulogymclases.modulogymclases", string="Nombre de la Clase")
+    socio = fields.Many2one("modulogym.modulogym", string="Nombre del Socio")
+    observaciones = fields.Char("Observaciones del Socio")
+    seccion = fields.Selection([('Zumba', 'Zumba'),('Body-Combat', 'Body Combat'),('Pesas', 'Pesas'),('Kick-Boxing', ('Kick-Boxing'))])
+    asistencia = fields.Char(string="Asistencia Confirmada", readonly=True)
 
 
 class modulogymclases(models.Model):
 	_name = 'modulogymclases.modulogymclases'
 	_rec_name = 'nombre_clase'
 
-
+	
 
 
 	@api.one
@@ -106,13 +122,12 @@ class modulogymclases(models.Model):
 	clave_clase = fields.Char(compute="campo_comp", string="Clave de la Clase", readonly=True)
 	primer_c = fields.Char(string="Caracteres Generados Aleotoriamente", readonly=True)
 	terminada = fields.Char(string="Clase Terminada", readonly=True)
+"""class modulogymins(models.Model):
+	 _name ='modulogymins.modulogymins'
+	 _rec_name = 'ins_socio'
 
-
-
-     	
-     		     
-
-
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+	 ins_clase = fields.Many2one("modulogymclases.modulogymclases", string="Nombre de la Clase")	
+	 ins_socio = fields.Many2one("modulogym.modulogym", string="Nombre del socio")
+	 ins_seccion = fields.Selection([('z', 'Salón Zumba'),('t', 'Zona TRX'),('p', 'Zona Pesas'),('b', 'Salón Body Combat')],string="Zona/Salón ")
+	 ins_observaciones_socio = fields.Char(string="Observaciones del socio")
+	 ins_confirmada = fields.char(string="Clase confirmada", readonly=True)"""
