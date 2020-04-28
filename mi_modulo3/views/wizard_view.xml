@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <act_window id="launch_session_wizard" name="Agregar Bandas" binding_model="mi_modulo3.mi_modulo3" res_model="modulo3.wizard" view_mode="form" target="new"  />
+
+
+    <record model="ir.ui.view" id="wizard_form_view">
+        <field name="name">wizard.form</field>
+        <field name="model">modulo3.wizard</field>
+        <field name="arch" type="xml">
+            <form String="Add Attendees">
+                <group>
+                    <field name="bandas_ids" widget="many2many_list"/>
+                    <!--<field name="attendee_ids"/>-->
+                </group>
+                <footer>
+                    <button name ="subscribe" type="object" string="Subscribe" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    
+
+</odoo>
