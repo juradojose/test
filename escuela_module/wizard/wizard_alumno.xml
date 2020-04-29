@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="wizard_escuela_module_alumnos" model="ir.ui.view">
+        <field name="name" >Escuela Wizard View</field>
+        <field name="model" >escuela_module.wizard_alumnos</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group size="300" width="150">
+                    <field name="carrera"/>
+                    <field name="contraction"/>
+                    <field name="grado"/>
+                    <field name="grupo"/>
+                    <field name="field_name"/>
+                </group>
+                
+                <footer>
+                      <button name='action_report' string='Generar'
+                                class='oe_highlight'
+                                type='object'
+                                 />
+                     
+                      <span class="or_cancel" > or
+                                <button special="cancel" string="Cancel" type="object" class="oe_link oe_inline"/>
+                     </span>
+               </footer>
+               </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_escuela_alumnos" model="ir.actions.act_window">
+        <field name="name">Escuela Alumno Wizard</field>
+        <field name="res_model">escuela_module.wizard_alumnos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_escuela_module_alumnos"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menuitem_wizard_alumno"
+            name="Report Wizard Alumno"
+            action="action_wizard_escuela_alumnos"
+            parent="escuela_alumnos_top"/>
+
+</odoo>

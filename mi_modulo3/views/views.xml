@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="mi_modulo3.list">
+      <field name="name">mi_modulo3 list</field>
+      <field name="model">mi_modulo3.mi_modulo3</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="banda"/>
+         <field name="genero"/>
+         <field name='enlace' widget='url'/>
+         <field name="valoracion" widget="priority"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="mi_modulo3.form">
+      <field name="name">mi_modulo3 form</field>
+      <field name="model">mi_modulo3.mi_modulo3</field>
+      <field name="arch" type="xml">
+        <form>
+        <!--<header>
+          <button string="Rellenar Banda" type="object" name="act_btn" class="oe_highlight"/>
+          <button string="Limpiar" type="object" name="act_btn2" />
+        </header> -->
+
+
+        <header>
+          
+          <button string="Revisar" type="object" name="casi_progressbar" states="inicio"/>
+          <button string="Confirmar" type="object" name="hecho_progressbar" class="oe_highlight" states="casi"/>
+          <field name="state" widget="statusbar" statusbar_visible="inicio,casi,hecho"/>
+
+        </header>
+
+
+          <sheet>
+            <group>
+              <field name="imagen" widget="image"/>
+              <field name="banda"/>
+              <field name="genero"/>
+              <field name="pais_origen"/>
+              <field name="estatus" widget="radio"/>
+              <field name='enlace' widget='url'/>
+              <field name="valoracion" widget="priority"/>
+              <!-- <field name="total_de_discos"/> -->
+              <field name="discos"/>
+            </group>
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="mi_modulo3.action_window">
+      <field name="name">mi_modulo3 window</field>
+      <field name="res_model">mi_modulo3.mi_modulo3</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Mi menu" id="mi_modulo3.menu_1_list" action="mi_modulo3.action_window" sequence="1" groups="mi_modulo3.group_user,mi_modulo3.group_manager"/>
+    
+
+  </data>
+</odoo>

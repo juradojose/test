@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <report id="reporte_materia" string="Reporte de la materia"
+               model="prueba_axel.materias"
+               report_type="qweb-pdf"
+               name="prueba_axel.report_materia_template"
+       />
+        <template id="report_materia_template">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                    <div class="header">
+                        Axel School xd / Logo
+                    </div>
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <h1>Infome por materia</h1>
+                        <br></br>
+                        Nombre de la materia:<t t-esc="doc.nombre"/>
+                        <br></br>
+                        Clave:<t t-esc="doc.clave"/>
+                        <br></br>
+                        Maestros impartiendo la materia:
+                        <p>
+                            <t t-foreach="doc.profes" t-as="index">
+                                <p><t t-esc="index.nombre"/></p>
+                                <p><t t-esc="index.rfc"/></p>
+                                <p><t t-esc="index.folio"/></p>
+                                <p><t t-esc="index.metodo"/></p>
+
+
+                            </t>
+                        <!--<t t-foreach='get_alumnos_values' t-as='value'>
+                            <t t-esc="value.nombre"/>
+                        </t>-->
+                        </p>
+                        <!--Alumno por materia:<t t-esc="doc.alumnos"/>-->
+                        <br></br>
+
+                    </div>
+                    <div class="footer">
+                        <small>este es mi footer</small>
+                    </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

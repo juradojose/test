@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_escuela_module_alumnos,escuela_module.escuela_alumno.alumnoform,model_escuela_module_escuela_alumno,group_user,1,1,0,0
+access_escuela_module_maestros,escuela_module_maestros,model_escuela_module_maestro,group_user,1,1,0,0
+access_escuela_module_calif,escuela_module_calificaciones,model_escuela_module_calificaciones,group_user,1,1,1,1
+access_escuela_module_alumnos_m,escuela_module.escuela_alumno.alumnoform_m,model_escuela_module_escuela_alumno,group_manager,1,1,1,1
+access_escuela_module_maestros_m,escuela_module_maestros_m,model_escuela_module_maestro,group_manager,1,1,1,1
+access_escuela_module_calif_m,escuela_module_calificaciones_m,model_escuela_module_calificaciones,group_manager,1,1,1,1

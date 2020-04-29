@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_res_partner_inherited">
+			<field name="name">view.res.partner.inherited</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<field name="phone" position="after">
+					<field name="my_field" />
+				</field>
+			</field>
+		</record>
+    <!--Action de este lugar-->
+    <record id="action_escuela_inherence" model="ir.actions.act_window">
+        <field name="name">Herencia</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">escuela_module.escuela_alumno</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create first teacher.</p>
+        </field>
+    </record>
+    <menuitem
+        id="escuela_root"
+        name="Escuela"
+        sequence="0"
+        />
+    <menuitem
+        id="escuela_alumnos"
+        name="Alumnos"
+        parent="escuela_root"
+        action="action_escuela_alumnos"
+        />  
+</odoo>

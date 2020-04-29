@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+admin_socio,administrador socio,model_modulogym_modulogym,group_modulogym_manager,1,1,1,1
+admin_staff,administrador staff,model_modulogymstaff_modulogymstaff,group_modulogym_manager,1,1,1,1
+admin_clases,administrador staff,model_modulogymclases_modulogymclases,group_modulogym_manager,1,1,1,1
+socio_clases,prueba.socio.modulogymclases.modulogymclases,model_modulogymclases_modulogymclases,group_modulogym_socio,1,0,0,0
+instructor_clases,prueba.instructor.modulogymclases.modulogymclases,model_modulogymclases_modulogymclases,group_modulogym_instructor,1,1,1,1
+instructor_staff,prueba.instructor.modulogymstaff.modulogymstaff,model_modulogymstaff_modulogymstaff,group_modulogym_instructor,1,0,0,0
+instructor_socio,prueba.instructor.modulogym.modulogym,model_modulogym_modulogym,group_modulogym_instructor,1,0,0,0
