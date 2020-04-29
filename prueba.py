@@ -1,4 +1,4 @@
 val = raw_input("el primer valor")
-val2 = raw_input("el segundo valor valor"\n)
+val2 = 2
 
-print val
+print val2
