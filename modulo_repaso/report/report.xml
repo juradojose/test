@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="report_tickets_all"
+        model="repaso.main"
+        string="Hello World"
+        report_type="qweb-pdf"
+        name="modulo_repaso.reporte_modulo_repaso_tickers"
+    />
+    <template id="reporte_modulo_repaso_tickers">
+        <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <xpath expr="//head" position="inside">
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+                </xpath>
+                <div class="header">
+                    <h1 class="title">Reporte de Tickets</h1>
+                </div>
+                <div class="page">
+                    
+                        <t t-foreach="docs" t-as="o"> 
+                            <div class="container">
+                                <t foreach="docs" as="o">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td><strong>Tipo de ticket</strong> : <span t-field="o.tickets"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nombre de Dueño</strong> : <span t-field="o.nombre_dueno"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Fecha de emisión</strong> : <span t-field="o.fecha_ticket"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Costo</strong> : <span t-field="o.costo"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td t-if="o.destino"><strong>Tipo de Destino</strong> : <span t-field="o.destino"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td t-if="o.lugar_destino"><strong>Lugar de destino</strong> : <span t-field="o.lugar_destino"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>descuento</strong> : <span t-field="o.descuento"></span></td>
+                                        </tr>
+                                    </table>
+                                </t>
+                            </div>
+                        </t>                       
+                </div>
+                <div class="footer">
+                    <small>Mi footer</small>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
