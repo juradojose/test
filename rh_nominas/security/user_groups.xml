@@ -1,0 +1,10 @@
+<odoo>
+	<data>
+		<record model="res.groups" id="group_rh">
+			<field name="name">Recursos Humanos</field>
+		</record>
+        <record model="res.groups" id="group_users">
+			<field name="name">Usuarios Nóminas</field>
+		</record>
+	</data>
+</odoo>
