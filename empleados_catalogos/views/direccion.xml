@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+  <!--Search Dirección-->
+  <record id="catalogos_direccion_view_search" model="ir.ui.view">
+        <field name="name">catalogos.direccion.search</field>
+        <field name="model">catalogos.direccion</field>
+        <field name="arch" type="xml">
+            <search string="Search Patients">
+              <field name="clave"/>
+              <field name="direccion"/>
+              <field name="nivel"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+            </search>
+        </field>
+  </record>
+  <!--Action Direccion-->
+        <record id="catalogos_direccion_action" model="ir.actions.act_window">
+            <field name="name">Coordinación General/Dirección General</field>
+            <field name="res_model">catalogos.direccion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">Crear Dirección/Coordinación.</p>
+            </field>
+        </record>
+  <!--Adding custom submenus-->
+        <menuitem
+          id="catalogos_root_menu"
+          parent="hr.menu_human_resources_configuration"
+          name="Catalogo"
+        />
+        <menuitem
+          id="catalogos_direccion_submenu"
+          name="Coordinación General/Dirección General"
+          action="catalogos_direccion_action"
+          parent="catalogos_root_menu"
+          sequence="10"
+        />
+  <!--end-->
+            
+  <!-- Vista de Coordinación General/Dirección  -->
+    <record id="catalogos_direccion_view_form" model="ir.ui.view">
+      <field name="name">catalogos.direccion.view.form</field>
+      <field name="model">catalogos.direccion</field>
+      <field name="arch" type="xml">
+        <form string="Coordinación General/Dirección General">
+          <sheet>
+            <group string="Formulario">
+              <field name="clave"/>
+              <field name="direccion"/>
+              <field name="nivel"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>    
+    <record id="catalogos_direccion_view_list" model="ir.ui.view">
+      <field name="name">catalogos.direccion.view.list</field>
+      <field name="model">catalogos.direccion</field>
+      <field name="arch" type="xml" >
+        <tree string="Coordinación General/Dirección General">
+            <field name="clave"/>
+            <field name="direccion"/>
+            <field name="nivel"/>
+            <field name="subdependencia"/>
+            <field name="dependencia"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_fin"/>
+        </tree>
+      </field>
+    </record>
+  <!-- fin vista Coordinación General/Dirección General-->
+
+  <!--Vista -->
+  </data>
+</odoo>

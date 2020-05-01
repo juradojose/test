@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+  <!--Search dependencia-->
+  <record id="catalogos_dependencia_view_search" model="ir.ui.view">
+        <field name="name">catalogos.dependencia.search</field>
+        <field name="model">catalogos.dependencia</field>
+        <field name="arch" type="xml">
+            <search string="Search Patients">
+                <field name="clave"/>
+                <field name="dependencia"/>
+                <field name="nivel"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+            </search>
+        </field>
+  </record>
+  <!--Action Dependencia-->
+        <record id="catalogos_dependencia_action" model="ir.actions.act_window">
+            <field name="name">Dependencias</field>
+            <field name="res_model">catalogos.dependencia</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">Crear la primera dependencia.</p>
+            </field>
+        </record>
+  <!--Adding custom submenus-->
+        <menuitem
+          id="catalogos_root_menu"
+          parent="hr.menu_human_resources_configuration"
+          name="Catalogo"
+        />
+        <menuitem
+          id="catalogos_dependencias_submenu"
+          name="Dependencias"
+          action="catalogos_dependencia_action"
+          parent="catalogos_root_menu"
+          sequence="10"
+        />
+  <!--end-->
+            
+  <!-- Vista de dependencias -->
+    <record id="catalogos_departamento_view_form" model="ir.ui.view">
+      <field name="name">catalogos.dependencia.view.form</field>
+      <field name="model">catalogos.dependencia</field>
+      <field name="arch" type="xml">
+        <form string="Dependencia">
+          <sheet>
+            <group string="Formulario">
+             <field name="clave"/>
+             <field name="dependencia"/>
+             <field name="nivel"/>
+             <field name="fecha_inicio"/>
+             <field name="fecha_fin"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>    
+   
+    <record id="catalogos_dependencia_view_list" model="ir.ui.view">
+      <field name="name">catalogos.dependencia.view.list</field>
+      <field name="model">catalogos.dependencia</field>
+      <field name="arch" type="xml" >
+        <tree string="Dependencias">
+              <field name="clave"/>
+             <field name="dependencia"/>
+             <field name="nivel"/>
+             <field name="fecha_inicio"/>
+             <field name="fecha_fin"/>
+        </tree>
+      </field>
+    </record>
+  <!-- fin vista dependencias-->
+
+  <!--Vista -->
+  </data>
+</odoo>

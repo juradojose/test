@@ -1,0 +1,89 @@
+<odoo>
+  <data>
+    <!--Search Adscripciones_particulares-->
+    <record id="catalogos_adscripcion_view_search" model="ir.ui.view">
+          <field name="name">cat_generales.adscripciones_par.search</field>
+          <field name="model">cat_generales.adscripciones_par</field>
+          <field name="arch" type="xml">
+              <search string="Search Patients">
+                <field name="clave"/>
+                <field name="nombre_ads_par" />
+                <field name="fecha_inicial"/>
+                <field name="fecha_fin"/>
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="direccion"/>
+                <field name="dir_area"/>
+                <field name="nombre_ads"/>
+                <field name="jerarquia"/>
+              </search>
+          </field>
+    </record>
+    <!--Action adscripciones_par-->
+        <record id="catalogos_adscripcion_action" model="ir.actions.act_window">
+            <field name="name">Adscipciones Particulares</field>
+            <field name="res_model">cat_generales.adscripciones_par</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">Crear la primera adscipción.</p>
+            </field>
+        </record>
+  <!--Adding custom submenus-->
+        <menuitem
+          id="catalogos_root_menu"
+          parent="hr.menu_human_resources_configuration"
+          name="Catalogo"
+        />
+        <menuitem
+          id="catalogos_adscripcions_submenu"
+          name="rAdscipciones Generales"
+          action="catalogos_adscripcion_action"
+          parent="catalogos_root_menu"
+          sequence="10"
+        />
+  <!--end-->
+    <!--Vista adscripciones_par-->
+    <record id="cat_generales_adscipciones_par_view_form" model="ir.ui.view">
+      <field name="name">cat_generales.adscipciones_par.view.form</field>
+      <field name="model">cat_generales.adscipciones_par</field>
+      <field name="arch" type="xml">
+        <form string="adscripciones_par generales">
+          <sheet>
+            <group>
+              <field name="clave"/>
+                <field name="nombre_ads_par" />
+              <field name="fecha_inicial"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="direccion"/>
+              <field name="dir_area"/>
+              <field name="nombre_ads"/>
+              <field name="jerarquia"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+     <record id="catalogos_adscripciones_par_view_list" model="ir.ui.view">
+      <field name="name">catalogos.adscripciones_par.view.list</field>
+      <field name="model">catalogos.adscripciones_par</field>
+      <field name="arch" type="xml" >
+        <tree string="adscripciones_par Generales">
+              <field name="clave"/>
+                <field name="nombre_ads_par" />
+              <field name="fecha_inicial"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="direccion"/>
+              <field name="dir_area"/>
+              <field name="nombre_ads"/>
+              <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+  <!-- fin vista dependencias-->
+  </data>
+</odoo>
