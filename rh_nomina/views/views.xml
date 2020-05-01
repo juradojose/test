@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record model="ir.ui.view" id="rh_nomina.list_001">
+      <field name="name">vista.lista.dependencia</field>
+      <field name="model">rh_nomina.dependencia</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clave"/>
+          <field name="dependencia"/>
+          <field name="nivel"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="rh_nomina.list_002">
+      <field name="name">vista.lista.subdependencia</field>
+      <field name="model">rh_nomina.subdependencia</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="subdependencia"/>
+            <field name="dependencia"/>
+            <field name="nivel"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="rh_nomina.list_003">
+      <field name="name">vista.lista.coordinacion</field>
+      <field name="model">rh_nomina.coordinacion</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="coordinacion"/>
+            <field name="nivel"/>
+            <field name="subdependencia"/>
+            <field name="dependencia"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_004">
+      <field name="name">vista.lista.direccion</field>
+      <field name="model">rh_nomina.direccion</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="direccion"/>
+            <field name="nivel"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_005">
+      <field name="name">vista.lista.direccion</field>
+      <field name="model">rh_nomina.adgeneral</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="direccion"/>
+            <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_006">
+      <field name="name">vista.lista.direccion</field>
+      <field name="model">rh_nomina.adparticular</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="direccion"/>
+            <field name="ad_general"/>
+            <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_007">
+      <field name="name">vista.lista.direccion</field>
+      <field name="model">rh_nomina.unidad</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="direccion"/>
+            <field name="ad_general"/>
+            <field name="ad_particular"/>
+            <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_008">
+      <field name="name">vista.lista.centrot</field>
+      <field name="model">rh_nomina.centrot</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="direccion"/>
+            <field name="ad_general"/>
+            <field name="ad_particular"/>
+            <field name="unidad"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_009">
+      <field name="name">vista.lista.centroc</field>
+      <field name="model">rh_nomina.centroc</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            <field name="dependencia"/>
+            <field name="subdependencia"/>
+            <field name="coordinacion"/>
+            <field name="direccion"/>
+            <field name="ad_general"/>
+            <field name="ad_particular"/>
+            <field name="unidad"/>
+            <field name="centrot"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_010">
+      <field name="name">vista.lista.ordenj</field>
+      <field name="model">rh_nomina.ordenj</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="jerarquia"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.list_011">
+      <field name="name">vista.lista.sindicato</field>
+      <field name="model">rh_nomina.sindicato</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+   <record model="ir.ui.view" id="rh_nomina.form_001">
+      <field name="name">vista.formulario.dependencia</field>
+      <field name="model">rh_nomina.dependencia</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+              <field name="clave"/>
+              <field name="dependencia"/>
+              <field name="nivel"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="rh_nomina.form_002">
+      <field name="name">vista.formulario.subdependencia</field>
+      <field name="model">rh_nomina.subdependencia</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+              <field name="clave"/>
+                <field name="subdependencia"/>
+                <field name="nivel"/>
+                <field name="dependencia"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_003">
+      <field name="name">vista.formulario.coordinacion</field>
+      <field name="model">rh_nomina.coordinacion</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+              <field name="clave"/>
+                <field name="coordinacion"/>
+                <field name="nivel"/>
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_004">
+      <field name="name">vista.formulario.direccion</field>
+      <field name="model">rh_nomina.direccion</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+              <field name="clave"/>
+                <field name="direccion"/>
+                <field name="nivel"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_005">
+      <field name="name">vista.formulario.adgeneral</field>
+      <field name="model">rh_nomina.adgeneral</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+                <field name="direccion"/>
+                <field name="jerarquia" widget="selection"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_006">
+      <field name="name">vista.formulario.adparticular</field>
+      <field name="model">rh_nomina.adparticular</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+                <field name="direccion"/>
+                <field name="ad_general"/>
+                <field name="jerarquia" widget="selection"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_007">
+      <field name="name">vista.formulario.unidadr</field>
+      <field name="model">rh_nomina.unidad</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+                <field name="direccion"/>
+                <field name="ad_general"/>
+                <field name="ad_particular"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_008">
+      <field name="name">vista.formulario.costot</field>
+      <field name="model">rh_nomina.costot</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+                <field name="direccion"/>
+                <field name="ad_general"/>
+                <field name="ad_particular"/>
+                <field name="unidad"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_009">
+      <field name="name">vista.formulario.unidadr</field>
+      <field name="model">rh_nomina.costoc</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+            <field name="nombre"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_final"/>
+            </group>
+            <group col="2">
+                <field name="dependencia"/>
+                <field name="subdependencia"/>
+                <field name="coordinacion"/>
+                <field name="direccion"/>
+                <field name="ad_general"/>
+                <field name="ad_particular"/>
+                <field name="unidad"/>
+             <field name="centrot"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_010">
+      <field name="name">vista.formulario.unidadr</field>
+      <field name="model">rh_nomina.ordenj</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+                <field name="jerarquia"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nomina.form_011">
+      <field name="name">vista.formulario.unidadr</field>
+      <field name="model">rh_nomina.sindicato</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group col="2">
+                <field name="clave"/>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+            </group>
+          </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+      </field>
+    </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window1">
+            <field name="name">Dependencias</field>
+            <field name="res_model">rh_nomina.dependencia</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window2">
+            <field name="name">Subdependencias</field>
+            <field name="res_model">rh_nomina.subdependencia</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window3">
+            <field name="name">Coordinaciones</field>
+            <field name="res_model">rh_nomina.coordinacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window4">
+            <field name="name">Direcciones</field>
+            <field name="res_model">rh_nomina.direccion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window5">
+            <field name="name">Adscripcion general</field>
+            <field name="res_model">rh_nomina.adgeneral</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window6">
+            <field name="name">Adscripcion particular</field>
+            <field name="res_model">rh_nomina.adparticular</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window7">
+            <field name="name">Unidades</field>
+            <field name="res_model">rh_nomina.unidad</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window8">
+            <field name="name">CentrosT</field>
+            <field name="res_model">rh_nomina.centrost</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window9">
+            <field name="name">centroc</field>
+            <field name="res_model">rh_nomina.centrosc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window10">
+            <field name="name">ordenj</field>
+            <field name="res_model">rh_nomina.ordenj</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rh_nomina.action_window11">
+            <field name="name">sindicato</field>
+            <field name="res_model">rh_nomina.sindicato</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html" >
+                <p class="oe_view_nocontent_create">
+                    pulsa para crear otro registro
+                </p>
+            </field>
+        </record>
+
+
+      <menuitem name="Catalogo" id="rh_nomina.menu_catalogo" parent="hr.menu_human_resources_configuration"/>
+      <menuitem name="Dependencia" id="rh_nomina.menu_dependencias" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window1" />
+      <menuitem name="Subdependencia" id="rh_nomina.menu_subdependencias" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window2"  />
+      <menuitem name="Coordinaciòn/Direcciòn General" id="rh_nomina.menu_coordinaciones" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window3"  />
+      <menuitem name="Direcciòn de Area" id="rh_nomina.menu_direcciones" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window4"  />
+      <menuitem name="Adscripcion General" id="rh_nomina.menu_adgeneral" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window5"  />
+      <menuitem name="Adscripcion Particular" id="rh_nomina.menu_adparticular" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window6"  />
+      <menuitem name="Unidad de responsables" id="rh_nomina.menu_unidad" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window7"  />
+      <menuitem name="Centros de trabajo" id="rh_nomina.menu_centrot" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window8"  />
+      <menuitem name="Centros de costos" id="rh_nomina.menu_centroc" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window9"  />
+      <menuitem name="Orden Jerarquica" id="rh_nomina.menu_ordenj" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window10"  />
+      <menuitem name="Sindicatos" id="rh_nomina.menu_sindicato" parent="rh_nomina.menu_catalogo" action="rh_nomina.action_window11"  />
+
+
+        <!--<record id="view_inherit_employee_form" model="ir.ui.view">
+        <field name="name">view.inherit.employee.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="nombre_padres"/>
+                <field name="passed_override_write_function"/>
+            </field>
+        </field>
+    </record> -->
+
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+dep_rh,model rh acces,model_rh_nomina_dependencia,group_rh,1,1,1,1
+sub_rh,model rh acces,model_rh_nomina_subdependencia,group_rh,1,1,1,1
+coord_rh,model rh acces,model_rh_nomina_coordinacion,group_rh,1,1,1,1
+dir_rh,model rh acces,model_rh_nomina_direccion,group_rh,1,1,1,1
+dep_user,model user acces,model_rh_nomina_dependencia,group_usunom,1,0,0,0
+sub_user,model user acces,model_rh_nomina_subdependencia,group_usunom,1,0,0,0
+coord_user,model user acces,model_rh_nomina_coordinacion,group_usunom,1,0,0,0
+dir_user,model user acces,model_rh_nomina_direccion,group_usunom,1,0,0,0
