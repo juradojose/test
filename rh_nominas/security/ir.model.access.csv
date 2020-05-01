@@ -1,0 +1,24 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rh_nominas_rh_nominas,rh_nominas.rh_nominas,model_rh_nominas_rh_nominas,,1,0,0,0
+rh_dep,RH Dependencias,model_rh_nominas_rh_nominas,group_rh,1,1,1,1
+rh_sub,RH Subdependencias,model_rh_subdep,group_rh,1,1,1,1
+rh_coord,RH Coordinación,model_rh_coord,group_rh,1,1,1,1
+rh_dir,RH Dirección Área,model_rh_dir,group_rh,1,1,1,1
+rh_adsc,RH Adsc Gral,model_rh_adsc,group_rh,1,1,1,1
+rh_part,RH Adsc Part,model_rh_part,group_rh,1,1,1,1
+rh_resp,RH U Responsable,model_rh_resp,group_rh,1,1,1,1
+rh_trab,RH Centro Trabajo,model_rh_trab,group_rh,1,1,1,1
+rh_cost,RH Centro Costos,model_rh_cost,group_rh,1,1,1,1
+rh_ord,RH Orden Jerarq,model_rh_ord,group_rh,1,1,1,1
+rh_sin,RH Sindicato,model_rh_sin,group_rh,1,1,1,1
+us_dep,US Dependencias,model_rh_nominas_rh_nominas,group_users,1,0,0,0
+us_sub,US Subdependencias,model_rh_subdep,group_users,1,0,0,0
+us_coord,US Coordinación,model_rh_coord,group_users,1,0,0,0
+us_dir,US Dirección,model_rh_dir,group_users,1,0,0,0
+us_adsc,US Adsc Gral,model_rh_adsc,group_users,1,0,0,0
+us_part,US Adsc Part,model_rh_part,group_users,1,0,0,0
+us_resp,US U Responsable,model_rh_resp,group_users,1,0,0,0
+us_trab,US Centro Trabajo,model_rh_trab,group_users,1,0,0,0
+us_cost,US Centro Costos,model_rh_cost,group_users,1,0,0,0
+us_ord,US Orden Jerarq,model_rh_ord,group_users,1,0,0,0
+us_sin,US Sindicato,model_rh_sin,group_users,1,0,0,0

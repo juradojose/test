@@ -1,0 +1,741 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="rh_nominas.list_001">
+      <field name="name">rh_nominas list</field>
+      <field name="model">rh_nominas.rh_nominas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clave_dependencia"/>
+          <field name="nombre_dependencia"/>
+          <field name="nivel_dependencia"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_001">
+      <field name="name">vista.formulario.rh_nominas</field>
+      <field name="model">rh_nominas.rh_nominas</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="clave_dependencia"/>
+              <field name="nombre_dependencia"/>
+              <field name="nivel_dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_002">
+      <field name="name">rh_subdep list</field>
+      <field name="model">rh_subdep</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clave_subdep"/>
+          <field name="nombre_subdep"/>
+          <field name="nivel_subdep"/>
+          <field name="dependencia"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_002">
+      <field name="name">vista.formulario.rh_subdep</field>
+      <field name="model">rh_subdep</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="clave_subdep"/>
+              <field name="nombre_subdep"/>
+              <field name="nivel_subdep"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_003">
+      <field name="name">rh_coord list</field>
+      <field name="model">rh_coord</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clave_coord"/>
+          <field name="nombre_coord"/>
+          <field name="nivel_coord"/>
+          <field name="subdependencia"/>
+          <field name="dependencia"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_003">
+      <field name="name">vista.formulario.rh_coord</field>
+      <field name="model">rh_coord</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="clave_coord"/>
+              <field name="nombre_coord"/>
+              <field name="nivel_coord"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_004">
+      <field name="name">rh_dir list</field>
+      <field name="model">rh_dir</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="clave_dir"/>
+          <field name="nombre_dir"/>
+          <field name="nivel_dir"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="dependencia"/>
+          <field name="subdependencia"/>
+          <field name="coord"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_004">
+      <field name="name">vista.formulario.rh_dir</field>
+      <field name="model">rh_dir</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="clave_dir"/>
+              <field name="nombre_dir"/>
+              <field name="nivel_dir"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coord"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_005">
+      <field name="name">rh_adsc list</field>
+      <field name="model">rh_adsc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="ad_clave"/>
+          <field name="ad_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="cd"/>
+          <field name="dependencia"/>
+          <field name="cs"/>
+          <field name="subdependencia"/>
+          <field name="cc"/>
+          <field name="coord"/>
+          <field name="cdi"/>
+          <field name="dire"/>
+          <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_005">
+      <field name="name">vista.formulario.rh_adsc</field>
+      <field name="model">rh_adsc</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="ad_clave"/>
+              <field name="ad_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <group>
+              <field name="cd"/>
+              <field name="dependencia"/>
+              </group>
+              <group>
+              <field name="cs"/>
+              <field name="subdependencia"/>
+              </group>
+              <group>
+              <field name="cc"/>
+              <field name="coord"/>
+              </group>
+              <group>
+              <field name="cdi"/>
+              <field name="dire"/>
+              </group>
+              <field name="jerarquia"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_006">
+      <field name="name">rh_part list</field>
+      <field name="model">rh_part</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="p_clave"/>
+          <field name="p_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="cd"/>
+          <field name="dependencia"/>
+          <field name="cs"/>
+          <field name="subdependencia"/>
+          <field name="cc"/>
+          <field name="coord"/>
+          <field name="cdi"/>
+          <field name="dire"/>
+          <field name="ca"/>
+          <field name="adgral"/>
+          <field name="jerarquia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_006">
+      <field name="name">vista.formulario.rh_part</field>
+      <field name="model">rh_part</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="p_clave"/>
+              <field name="p_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <group>
+              <field name="cd"/>
+              <field name="dependencia"/>
+              </group>
+              <group>
+              <field name="cs"/>
+              <field name="subdependencia"/>
+              </group>
+              <group>
+              <field name="cc"/>
+              <field name="coord"/>
+              </group>
+              <group>
+              <field name="cdi"/>
+              <field name="dire"/>
+              </group>
+              <group>
+              <field name="ca"/>
+              <field name="adgral"/>
+              </group>
+              <field name="jerarquia"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_007">
+      <field name="name">rh_resp list</field>
+      <field name="model">rh_resp</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="r_clave"/>
+          <field name="r_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="cd"/>
+          <field name="dependencia"/>
+          <field name="cs"/>
+          <field name="subdependencia"/>
+          <field name="cc"/>
+          <field name="coord"/>
+          <field name="cdi"/>
+          <field name="dire"/>
+          <field name="ca"/>
+          <field name="adgral"/>
+          <field name="cp"/>
+          <field name="adpar"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_007">
+      <field name="name">vista.formulario.rh_resp</field>
+      <field name="model">rh_resp</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="r_clave"/>
+              <field name="r_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <group>
+              <field name="cd"/>
+              <field name="dependencia"/>
+              </group>
+              <group>
+              <field name="cs"/>
+              <field name="subdependencia"/>
+              </group>
+              <group>
+              <field name="cc"/>
+              <field name="coord"/>
+              </group>
+              <group>
+              <field name="cdi"/>
+              <field name="dire"/>
+              </group>
+              <group>
+              <field name="ca"/>
+              <field name="adgral"/>
+              </group>
+              <group>
+              <field name="cp"/>
+              <field name="adpar"/>
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="rh_nominas.list_008">
+      <field name="name">rh_trab list</field>
+      <field name="model">rh_trab</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="t_clave"/>
+          <field name="t_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="cd"/>
+          <field name="dependencia"/>
+          <field name="cs"/>
+          <field name="subdependencia"/>
+          <field name="cc"/>
+          <field name="coord"/>
+          <field name="cdi"/>
+          <field name="dire"/>
+          <field name="ca"/>
+          <field name="adgral"/>
+          <field name="cp"/>
+          <field name="adpar"/>
+          <field name="cu"/>
+          <field name="resp"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_008">
+      <field name="name">vista.formulario.rh_trab</field>
+      <field name="model">rh_trab</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="t_clave"/>
+              <field name="t_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <group>
+              <field name="cd"/>
+              <field name="dependencia"/>
+              </group>
+              <group>
+              <field name="cs"/>
+              <field name="subdependencia"/>
+              </group>
+              <group>
+              <field name="cc"/>
+              <field name="coord"/>
+              </group>
+              <group>
+              <field name="cdi"/>
+              <field name="dire"/>
+              </group>
+              <group>
+              <field name="ca"/>
+              <field name="adgral"/>
+              </group>
+              <group>
+              <field name="cp"/>
+              <field name="adpar"/>
+              </group>
+              <group>
+              <field name="cu"/>
+              <field name="resp"/>
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_009">
+      <field name="name">rh_cost list</field>
+      <field name="model">rh_cost</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="c_clave"/>
+          <field name="c_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="cd"/>
+          <field name="dependencia"/>
+          <field name="cs"/>
+          <field name="subdependencia"/>
+          <field name="cc"/>
+          <field name="coord"/>
+          <field name="cdi"/>
+          <field name="dire"/>
+          <field name="ca"/>
+          <field name="adgral"/>
+          <field name="cp"/>
+          <field name="adpar"/>
+          <field name="cu"/>
+          <field name="resp"/>
+          <field name="ct"/>
+          <field name="trab"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_009">
+      <field name="name">vista.formulario.rh_cost</field>
+      <field name="model">rh_cost</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="c_clave"/>
+              <field name="c_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <group>
+              <field name="cd"/>
+              <field name="dependencia"/>
+              </group>
+              <group>
+              <field name="cs"/>
+              <field name="subdependencia"/>
+              </group>
+              <group>
+              <field name="cc"/>
+              <field name="coord"/>
+              </group>
+              <group>
+              <field name="cdi"/>
+              <field name="dire"/>
+              </group>
+              <group>
+              <field name="ca"/>
+              <field name="adgral"/>
+              </group>
+              <group>
+              <field name="cp"/>
+              <field name="adpar"/>
+              </group>
+              <group>
+              <field name="cu"/>
+              <field name="resp"/>
+              </group>
+              <group>
+              <field name="ct"/>
+              <field name="trab"/>
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_010">
+      <field name="name">rh_ord list</field>
+      <field name="model">rh_ord</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="o_clave"/>
+          <field name="o_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_010">
+      <field name="name">vista.formulario.rh_ord</field>
+      <field name="model">rh_ord</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="o_clave"/>
+              <field name="o_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.list_011">
+      <field name="name">rh_sin list</field>
+      <field name="model">rh_sin</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="s_clave"/>
+          <field name="s_nombre"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rh_nominas.form_011">
+      <field name="name">vista.formulario.rh_sin</field>
+      <field name="model">rh_sin</field>
+      <field name="arch" type="xml">
+        <form> 
+          <sheet>
+            <group>
+              <field name="s_clave"/>
+              <field name="s_nombre"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_final"/>
+              <field name="status"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="rh_nominas.action_window1">
+      <field name="name">RH Dependencias</field>
+      <field name="res_model">rh_nominas.rh_nominas</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window2">
+      <field name="name">RH Subdependencias</field>
+      <field name="res_model">rh_subdep</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window3">
+      <field name="name">RH Coordinación General</field>
+      <field name="res_model">rh_coord</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window4">
+      <field name="name">RH Dirección de Área</field>
+      <field name="res_model">rh_dir</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window5">
+      <field name="name">RH Adscripción General</field>
+      <field name="res_model">rh_adsc</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window6">
+      <field name="name">RH Adscripción Particular</field>
+      <field name="res_model">rh_part</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window7">
+      <field name="name">RH Unidades Responsables</field>
+      <field name="res_model">rh_resp</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window8">
+      <field name="name">RH Centro de Trabajo</field>
+      <field name="res_model">rh_trab</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window9">
+      <field name="name">RH Centro de Costos</field>
+      <field name="res_model">rh_cost</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window10">
+      <field name="name">RH Crden Jerárquico</field>
+      <field name="res_model">rh_ord</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+    <record model="ir.actions.act_window" id="rh_nominas.action_window11">
+      <field name="name">RH Sindicato</field>
+      <field name="res_model">rh_sin</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Pulsa crear para generar un registro
+        </p>
+      </field>  
+    </record>
+
+
+    <!-- Top menu item -->
+    <!---
+    <menuitem name="RH Nominas" id="rh_nominas.menu_root"/>
+    -->
+    <!-- menu categories -->
+    
+    <menuitem name="Catalogo" id="rh_nominas.menu_catalogo" parent="hr.menu_human_resources_configuration"/>
+    <menuitem name="Dependencia" id="rh_nominas.menu_dependencias" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window1" />
+    <menuitem name="Subdependencia" id="rh_nominas.menu_subdependencias" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window2" />
+    <menuitem name="Coordinación General" id="rh_nominas.menu_coord" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window3" />
+    <menuitem name="Dirección de Área" id="rh_nominas.menu_dir" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window4" />
+    <menuitem name="Adscripción General" id="rh_nominas.menu_adsc" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window5" />
+    <menuitem name="Adscripción Particular" id="rh_nominas.menu_part" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window6" />
+    <menuitem name="Unidades Responsables" id="rh_nominas.menu_resp" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window7" />
+    <menuitem name="Centro de Trabajo" id="rh_nominas.menu_trab" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window8" />
+    <menuitem name="Centro de Costos" id="rh_nominas.menu_cost" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window9" />
+    <menuitem name="Orden Jerárquico" id="rh_nominas.menu_ord" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window10" />
+    <menuitem name="Sindicato" id="rh_nominas.menu_sin" parent="rh_nominas.menu_catalogo" action="rh_nominas.action_window11" />
+    
+
+  </data>
+</odoo>
