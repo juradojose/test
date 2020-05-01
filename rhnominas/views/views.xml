@@ -1,0 +1,655 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="rhnominas.list1">
+      <field name="name">nominas list</field>
+      <field name="model">rhnominas.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="dependencia"/>
+         <field name="nivel"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form1">
+      <field name="name">nominas form</field>
+      <field name="model">rhnominas.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="dependencia"/>
+              <field name="nivel"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+            </group>
+            
+            
+          </sheet>
+
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+
+
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window1">
+      <field name="name">nominas window</field>
+      <field name="res_model">rhnominas.rhnominas</field>
+      
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="CATALOGO" id="rhnominas.menu_1_list" parent="hr.menu_human_resources_configuration"/>
+
+    <menuitem name="Dependencias" id="rhnominas.menu_1_list1" 
+              action="rhnominas.action_window1" sequence="1" parent="rhnominas.menu_1_list"/>
+
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE SUBDEPENDENCIAS*************************-->
+    <record model="ir.ui.view" id="rhnominas.list2">
+      <field name="name">nominas list</field>
+      <field name="model">subdependencias.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="subdependencia"/>
+         <field name="nivel"/>
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form2">
+      <field name="name">nominas form</field>
+      <field name="model">subdependencias.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="subdependencia"/>
+              <field name="nivel"/>
+              <field name="dependencia"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window2">
+      <field name="name">nominas window</field>
+      <field name="res_model">subdependencias.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="subdependencia" id="rhnominas.menu_1_list2" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window2" sequence="1"/>
+
+
+
+
+    
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE COORDINACION*************************-->
+     <record model="ir.ui.view" id="rhnominas.list3">
+      <field name="name">nominas list</field>
+      <field name="model">coordinacion.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="coordinacion"/>
+         <field name="nivel"/>
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form3">
+      <field name="name">nominas form</field>
+      <field name="model">coordinacion.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="coordinacion"/>
+              <field name="nivel"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window3">
+      <field name="name">nominas window</field>
+      <field name="res_model">coordinacion.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Coordinacion" id="rhnominas.menu_1_list3" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window3" sequence="1"/>
+
+    
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE DIRECCION DE AREA*************************-->
+    <record model="ir.ui.view" id="rhnominas.list4">
+      <field name="name">nominas list</field>
+      <field name="model">direccion.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="coordinacion"/>
+         <field name="nivel"/>
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form4">
+      <field name="name">nominas form</field>
+      <field name="model">direccion.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="direccion_area"/>
+              <field name="nivel"/>
+              <field name="coordinacion"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window4">
+      <field name="name">nominas window</field>
+      <field name="res_model">direccion.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Direccion de area" id="rhnominas.menu_1_list4" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window4" sequence="1"/>
+
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE ADSCRIPCION GENERAL*************************-->
+
+    <record model="ir.ui.view" id="rhnominas.list5">
+      <field name="name">nominas list</field>
+      <field name="model">adscripciongral.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="nombre_adscripcion_gral"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form5">
+      <field name="name">nominas form</field>
+      <field name="model">adscripciongral.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="nombre_adscripcion_gral"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coordinacion"/>
+              <field name="direccion_area"/>
+              
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window5">
+      <field name="name">Adscripcion General</field>
+      <field name="res_model">adscripciongral.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Adscripcion General" id="rhnominas.menu_1_list5" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window5" sequence="1"/>
+
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE ADSCRIPCION particular*************************-->
+    <record model="ir.ui.view" id="rhnominas.list6">
+      <field name="name">nominas list</field>
+      <field name="model">adscripcionparti.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="nombre_adscripcion_particular"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form6">
+      <field name="name">nominas form</field>
+      <field name="model">adscripcionparti.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="nombre_adscripcion_particular"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coordinacion"/>
+              <field name="direccion_area"/>
+              <field name="adscripcion_gral"/>              
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window6">
+      <field name="name">Adscripcion Particular</field>
+      <field name="res_model">adscripcionparti.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Adscripcion Particular" id="rhnominas.menu_1_list6" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window6" sequence="1"/>
+
+    
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE UNIDAD RESPONSABLE*************************-->
+    <record model="ir.ui.view" id="rhnominas.list7">
+      <field name="name">nominas list</field>
+      <field name="model">unidadres.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="nombre"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form7">
+      <field name="name">nominas form</field>
+      <field name="model">unidadres.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="nombre"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coordinacion"/>
+              <field name="direccion_area"/>
+              <field name="adscripcion_gral"/> 
+              <field name="adscripcion_particular"/>              
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window7">
+      <field name="name">Unidades responsables</field>
+      <field name="res_model">unidadres.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Unidades responsables" id="rhnominas.menu_1_list7" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window7" sequence="1"/>
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE centro de trabajo*************************-->
+    <record model="ir.ui.view" id="rhnominas.list8">
+      <field name="name">nominas list</field>
+      <field name="model">centrotrabajo.rhnomina</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="nombre"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form8">
+      <field name="name">nominas form</field>
+      <field name="model">centrotrabajo.rhnomina</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="nombre"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coordinacion"/>
+              <field name="direccion_area"/>
+              <field name="adscripcion_gral"/> 
+              <field name="adscripcion_particular"/> 
+              <field name="unidad_responsable"/>              
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window8">
+      <field name="name">Centro de trabajo</field>
+      <field name="res_model">centrotrabajo.rhnomina</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Centro de trabajo" id="rhnominas.menu_1_list8" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window8" sequence="1"/>
+
+
+    <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE centro de costos*************************-->
+    <record model="ir.ui.view" id="rhnominas.list9">
+      <field name="name">nominas list</field>
+      <field name="model">centrocostos.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="nombre"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form9">
+      <field name="name">nominas form</field>
+      <field name="model">centrocostos.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="nombre"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+              <field name="dependencia"/>
+              <field name="subdependencia"/>
+              <field name="coordinacion"/>
+              <field name="direccion_area"/>
+              <field name="adscripcion_gral"/> 
+              <field name="adscripcion_particular"/> 
+              <field name="unidad_responsable"/> 
+              <field name="centro_trabajo"/>              
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window9">
+      <field name="name">Centro de costos</field>
+      <field name="res_model">centrocostos.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Centro de costos" id="rhnominas.menu_1_list9" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window9" sequence="1"/>
+
+     <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE catalogo orden jerarquico*************************-->
+     <record model="ir.ui.view" id="rhnominas.list10">
+      <field name="name">nominas list</field>
+      <field name="model">ordenj.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave"/>
+         <field name="jerarquia"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form10">
+      <field name="name">nominas form</field>
+      <field name="model">ordenj.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave"/>
+              <field name="jerarquia"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+                           
+            </group>
+            
+            
+          </sheet>
+
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window10">
+      <field name="name">Catalogo de orden de jerarquia</field>
+      <field name="res_model">ordenj.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Catalogo de orden de jeraquia" id="rhnominas.menu_1_list10" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window10" sequence="1"/>
+
+
+     <!--*******************A PARTIR DE AQUI SE EMPIEZA A DEFINIR EL MENU DE SINDICATOS*************************-->
+     <record model="ir.ui.view" id="rhnominas.list11">
+      <field name="name">nominas list</field>
+      <field name="model">sindicatos.rhnominas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="clave_sindicato"/>
+         <field name="nombre"/>
+         
+         
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="rhnominas.form11">
+      <field name="name">nominas form</field>
+      <field name="model">sindicatos.rhnominas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="clave_sindicato"/>
+              <field name="nombre"/>
+              <field name="fecha_ini"/>
+              <field name="fecha_fin"/>
+                           
+            </group>
+            
+            
+          </sheet>
+          <!--TRAZABILIDAD-->
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rhnominas.action_window11">
+      <field name="name">Sindicato</field>
+      <field name="res_model">sindicatos.rhnominas</field>
+      
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem name="Sindicatos" id="rhnominas.menu_1_list11" parent="rhnominas.menu_1_list"
+              action="rhnominas.action_window11" sequence="1"/>
+
+
+  
+
+
+
+  </data>
+</odoo>

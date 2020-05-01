@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        
+        <record id="group_privilegios_all" model="res.groups">
+            <field name="name">USUARIO PRIVILEGIADO</field>
+            <field name="comment">PERMISOS SUPERUSUARIO</field>
+        </record>
+
+        <record id="group_privilegios_invitado" model="res.groups">
+            <field name="name">USUARIO COMUN</field>
+            <field name="comment">PERMISOS VISUALIZACION</field>
+        </record>
+        
+    </data>
+</odoo>
