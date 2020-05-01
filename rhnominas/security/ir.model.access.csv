@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pyth_privilegios_all,rhnominas.rhnominas_all,model_rhnominas_rhnominas,rhnominas.group_privilegios_all,1,1,1,1
+pyth_privilegios_invitado,rhnominas.rhnominas_inv,model_rhnominas_rhnominas,rhnominas.group_privilegios_invitado,1,0,0,0
+sub_privilegios_all,subdependencias.rhnominas_all,model_subdependencias_rhnominas,rhnominas.group_privilegios_all,1,1,1,1
+sub_privilegios_invitado,subdependencias.rhnominas_inv,model_subdependencias_rhnominas,rhnominas.group_privilegios_invitado,1,0,0,0
+coordi_privilegios_all,coordinacion.rhnominas_all,model_coordinacion_rhnominas,rhnominas.group_privilegios_all,1,1,1,1
+coordi_privilegios_invitado,coordinacion.rhnominas_inv,model_coordinacion_rhnominas,rhnominas.group_privilegios_invitado,1,0,0,0
+area_privilegios_all,direccion.rhnominas_all,model_direccion_rhnominas,rhnominas.group_privilegios_all,1,1,1,1
+area_privilegios_invitado,direccion.rhnominas_inv,model_direccion_rhnominas,rhnominas.group_privilegios_invitado,1,0,0,0
