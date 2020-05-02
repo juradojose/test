@@ -2,19 +2,17 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-from datetime import date
 import unicodedata
-
 class catalogoDependencia(models.Model):
+    _inherit = 'mail.thread'
     _name="catalogos.dependencia"
     _rec_name="dependencia"
-    _inherit = 'mail.thread'
 
-    clave= fields.Char(string="Clave", required=True)
-    dependencia=fields.Char(string="Dependencia", size=200, required=True)
-    nivel=fields.Char(string="Nivel", required=True)
-    fecha_inicio=fields.Date(string="Fecha inicio", readonly=True, default= lambda self: fields.datetime.now())
-    fecha_fin=fields.Date(string="Fecha fin", readonly=True)
+    clave = fields.Char(string="Clave",required=True, track_visibility="onchange")
+    dependencia = fields.Char(string="Dependencia", size=200 ,required=True, track_visibility="onchange")
+    nivel = fields.Char(string="Nivel", required=True, track_visibility="onchange")
+    fecha_inicio = fields.Date(string="Fecha inicio",readonly=True, default = lambda self: fields.datetime.now())
+    fecha_fin = fields.Date(string="Fecha fin",readonly=True)
 
     @api.multi 
     def unlink(self):
@@ -42,7 +40,6 @@ class catalogoSubDependencia(models.Model):
     dependencia=fields.Many2one("catalogos.dependencia", string="Dependencia")
     fecha_inicio=fields.Date(readonly=True, string="Fecha Inicio",default=lambda self: fields.datetime.now())
     fecha_fin=fields.Date(readonly=True, string="Fecha Fin")
-
 
     @api.multi 
     def unlink(self):

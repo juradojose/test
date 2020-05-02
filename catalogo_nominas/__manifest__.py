@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "empleados_catalogos",
+    'name': "catalogo_nominas",
 
-    'summary': "Sección de configuración en catalogos de dependencias",
+    'summary': """
+        Short (1 phrase/line) summary of the module's purpose, used as
+        subtitle on modules listing or apps.openerp.com""",
 
     'description': """
         Long description of module's purpose
@@ -14,14 +16,11 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/10.0/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Empleados',
+    'category': 'Uncategorized',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': [
-        'base',
-        'mail',
-        ],
+    'depends': ['base', 'mail'],
 
     # always loaded
     'data': [
@@ -30,12 +29,13 @@
         'views/dir_area.xml',
         'views/subdependencia.xml',
         'views/direccion.xml',
-        'views/templates.xml',
+      #  'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        #'demo/demo.xml',
     ],
     'installable':True,
-    'autoinstallable':True
+    'autoinstallable':False,
+    'application':True
 }

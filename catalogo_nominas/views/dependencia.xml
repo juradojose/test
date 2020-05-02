@@ -46,14 +46,20 @@
       <field name="arch" type="xml">
         <form string="Dependencia">
           <sheet>
-            <group string="Formulario">
-             <field name="clave"/>
-             <field name="dependencia"/>
-             <field name="nivel"/>
-             <field name="fecha_inicio"/>
-             <field name="fecha_fin"/>
+            <group col="2">
+              <group>
+                <field name="clave"/>
+                <field name="dependencia"/>
+                <field name="nivel"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+              </group>
             </group>
           </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
         </form>
       </field>
     </record>    

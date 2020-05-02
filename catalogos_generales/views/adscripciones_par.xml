@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!--Search Adscripciones_particulares-->
-    <record id="catalogos_adscripcion_view_search" model="ir.ui.view">
+    <record id="cat_generales_adscripcion_view_search" model="ir.ui.view">
           <field name="name">cat_generales.adscripciones_par.search</field>
           <field name="model">cat_generales.adscripciones_par</field>
           <field name="arch" type="xml">
@@ -20,8 +20,8 @@
           </field>
     </record>
     <!--Action adscripciones_par-->
-        <record id="catalogos_adscripcion_action" model="ir.actions.act_window">
-            <field name="name">Adscipciones Particulares</field>
+        <record id="cat_generales_adscripcion_par_action" model="ir.actions.act_window">
+            <field name="name">Adscripciones Particulares</field>
             <field name="res_model">cat_generales.adscripciones_par</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -30,29 +30,25 @@
             </field>
         </record>
   <!--Adding custom submenus-->
+
         <menuitem
-          id="catalogos_root_menu"
-          parent="hr.menu_human_resources_configuration"
-          name="Catalogo"
-        />
-        <menuitem
-          id="catalogos_adscripcions_submenu"
-          name="rAdscipciones Generales"
-          action="catalogos_adscripcion_action"
-          parent="catalogos_root_menu"
+          id="cat_generales_adscripcions_submenu"
+          name="Adscripciones Particulares"
+          action="cat_generales_adscripcion_par_action"
+          parent="catalogo_nominas.catalogos_root_menu"
           sequence="10"
         />
   <!--end-->
     <!--Vista adscripciones_par-->
-    <record id="cat_generales_adscipciones_par_view_form" model="ir.ui.view">
-      <field name="name">cat_generales.adscipciones_par.view.form</field>
-      <field name="model">cat_generales.adscipciones_par</field>
+    <record id="cat_generales_adscripciones_par_view_form" model="ir.ui.view">
+      <field name="name">cat_generales.adscripciones_par.view.form</field>
+      <field name="model">cat_generales.adscripciones_par</field>
       <field name="arch" type="xml">
-        <form string="adscripciones_par generales">
+        <form string="Adscripciones Particulares">
           <sheet>
             <group>
               <field name="clave"/>
-                <field name="nombre_ads_par" />
+              <field name="nombre_ads_par" />
               <field name="fecha_inicial"/>
               <field name="fecha_fin"/>
               <field name="dependencia"/>
@@ -66,13 +62,13 @@
         </form>
       </field>
     </record>
-     <record id="catalogos_adscripciones_par_view_list" model="ir.ui.view">
-      <field name="name">catalogos.adscripciones_par.view.list</field>
-      <field name="model">catalogos.adscripciones_par</field>
+     <record id="cat_generales_adscripciones_par_view_list" model="ir.ui.view">
+      <field name="name">cat_generales.adscripciones_par.view.list</field>
+      <field name="model">cat_generales.adscripciones_par</field>
       <field name="arch" type="xml" >
         <tree string="adscripciones_par Generales">
               <field name="clave"/>
-                <field name="nombre_ads_par" />
+              <field name="nombre_ads_par" />
               <field name="fecha_inicial"/>
               <field name="fecha_fin"/>
               <field name="dependencia"/>

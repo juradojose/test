@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_catalogos_generales_catalogos_dependencia,catalogos_generales.catalogos_generales,model_catalogos_generales_catalogos_dependencia,,1,0,0,0
+access_rh_dependencia,Access.RH.Dependencia,model_catalogos_generales_catalogos_dependencia,group_rh,1,1,1,1
+access_rh_subdependency,Access.RH.SubDependency,model_catalogos_generales_catalogos_subdependencia,group_rh,1,1,1,1
+access_rh_direccion,Access.RH.Direccion,model_catalogos_generales_catalogos_direccion,group_rh,1,1,1,1
+access_rh_dir_area,Access.RH.Dir_Area,model_catalogos_generales_catalogos_dir_area,group_rh,1,1,1,1
+access_us_dependencia,Access.US.Dependencia,model_catalogos_generales_catalogos_dependencia,group_users,1,0,0,0
+access_us_subdependency,Access.US.SubDependency,model_catalogos_generales_catalogos_subdependencia,group_users,1,0,0,0
+access_us_direccion,Access.US.Direccion,model_catalogos_generales_catalogos_direccion,group_users,1,0,0,0
+access_us_dir_area,Access.US.Dir_Area,model_catalogos_generales_catalogos_dir_area,group_users,1,0,0,0
