@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="res.groups" model="group_rh">
+            <field name="name">Recursos Humanos</field>
+        </record>
+        <record id="res.groups" model="group_users">
+            <field name="name">Usuarios Nóminas</field>
+        </record>
+</odoo>

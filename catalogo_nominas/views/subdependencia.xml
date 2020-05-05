@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!--Search Subdependencia-->
+    <record id="catalogos_subdependencia_view_search" model="ir.ui.view">
+            <field name="name">catalogos.subdependencia.search</field>
+            <field name="model">catalogos.subdependencia</field>
+            <field name="arch" type="xml">
+                <search string="Search Patients">
+                    <field name="clave"/>
+                    <field name="subdependencia"/>
+                    <field name="nivel"/>
+                    <field name="dependencia"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                </search>
+            </field>
+    </record>
+    <!--Action view-->
+    <record id="catalogos_subdependencias_action" model="ir.actions.act_window">
+        <field name="name">Sub Dependencias</field>
+        <field name="res_model">catalogos.subdependencia</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crear la primera subdependecia.</p>
+        </field>
+    </record>
+    <!--Adding custom submenus-->
+        <menuitem
+          id="catalogos_subdependencias_submenu"
+          name="Sub-Dependencias"
+          action="catalogos_subdependencias_action"
+          parent="catalogos_root_menu"
+          sequence="10"
+        />
+    <!--end-->
+    <!-- Vista de dependencias -->
+    <record id="catalogos_subdepartamento_view_form" model="ir.ui.view">
+      <field name="name">catalogos.subdependencia.view.form</field>
+      <field name="model">catalogos.subdependencia</field>
+      <field name="arch" type="xml">
+        <form string="Dependencia">
+          <sheet>
+            <group string="Formulario">
+                <field name="clave"/>
+                <field name="subdependencia"/>
+                <field name="nivel"/>
+                <field name="dependencia"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>    
+    <record id="catalogos_subdependencia_view_list" model="ir.ui.view">
+      <field name="name">catalogos.subdependencia.view.list</field>
+      <field name="model">catalogos.subdependencia</field>
+      <field name="arch" type="xml" >
+        <tree string="Sub Dependencias">
+            <field name="clave"/>
+            <field name="subdependencia"/>
+            <field name="nivel"/>
+            <field name="dependencia"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_fin"/>
+        </tree>
+      </field>
+    </record>
+    <!-- fin vista dependencias-->
+
+    </data>
+</odoo>

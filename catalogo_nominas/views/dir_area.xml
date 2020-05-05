@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+  <!--Search dependencia-->
+  <record id="catalogos_dir_area_view_search" model="ir.ui.view">
+        <field name="name">catalogos.dir_area.search</field>
+        <field name="model">catalogos.dir_area</field>
+        <field name="arch" type="xml">
+            <search string="Search Patients">
+              <field name="clave"/>
+              <field name="dir_area"/>
+              <field name="nivel"/>
+              <field name="direccion"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+            </search>
+        </field>
+  </record>
+  <!--Action Dependencia-->
+        <record id="catalogos_dir_area_action" model="ir.actions.act_window">
+            <field name="name">Direccion de Area</field>
+            <field name="res_model">catalogos.dir_area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">Crear la primera dependencia.</p>
+            </field>
+        </record>
+  <!--Adding custom submenus-->
+        <menuitem
+          id="catalogos_root_menu"
+          parent="hr.menu_human_resources_configuration"
+          name="Catalogo"
+        />
+        <menuitem
+          id="catalogos_dir_areas_submenu"
+          name="Dirección de Area"
+          action="catalogos_dir_area_action"
+          parent="catalogos_root_menu"
+          sequence="10"
+        />
+  <!--end-->
+            
+  <!-- Vista de dependencias -->
+    <record id="catalogos_departamento_view_form" model="ir.ui.view">
+      <field name="name">catalogos.dir_area.view.form</field>
+      <field name="model">catalogos.dir_area</field>
+      <field name="arch" type="xml">
+        <form string="Dirección de area">
+          <sheet>
+            <group string="Formulario">
+              <field name="clave"/>
+              <field name="dir_area"/>
+              <field name="nivel"/>
+              <field name="direccion"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>    
+    <record id="catalogos_dir_area_view_list" model="ir.ui.view">
+      <field name="name">catalogos.dir_area.view.list</field>
+      <field name="model">catalogos.dir_area</field>
+      <field name="arch" type="xml" >
+        <tree string="Dirección de Area">
+              <field name="clave"/>
+              <field name="dir_area"/>
+              <field name="nivel"/>
+              <field name="direccion"/>
+              <field name="subdependencia"/>
+              <field name="dependencia"/>
+              <field name="fecha_inicio"/>
+              <field name="fecha_fin"/>
+        </tree>
+      </field>
+    </record>
+  <!-- fin vista dependencias-->
+
+  <!--Vista -->
+  </data>
+</odoo>
